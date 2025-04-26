@@ -17,7 +17,7 @@ int main()
 
 int largestElement(vector<int> &x)
 {
-    int max = x[0];
+    int max = x.size() > 1 ? x[0] : -1;
     for (int num : x)
     {
         if (num > max)
