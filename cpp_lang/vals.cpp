@@ -13,5 +13,7 @@ int main()
     // The address of the variable x does not change but the value
     // of the variable has been incremented at the same memory location.
 
+    // The &x gives you the address of the x variable in the memory.
+
     return 0;
 }
