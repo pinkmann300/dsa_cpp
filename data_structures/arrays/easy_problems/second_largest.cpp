@@ -4,6 +4,7 @@
 using namespace std;
 
 int secondLargest(vector<int> &x);
+int secondSmallest(vector<int> &x);
 
 int main()
 {
@@ -35,4 +36,27 @@ int secondLargest(vector<int> &x)
     }
 
     return second_max;
+}
+
+int secondSmallest(vector<int> &x)
+{
+    int second_min;
+    int min;
+
+    min = second_min = x[0];
+
+    for (int num : x)
+    {
+        if (num < min)
+        {
+            second_min = min;
+            min = num;
+        }
+        else if (num < second_min && num != min)
+        {
+            second_min = num;
+        }
+    }
+
+    return second_min;
 }
