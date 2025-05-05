@@ -3,13 +3,14 @@
 
 using namespace std;
 
+void leftRotateN(vector<int> &data1, int n);
 void leftRotate1(vector<int> &data1);
 void printArray(vector<int> &data1);
 
 int main()
 {
     vector<int> v3 = {1, 2, 3, 4, 5};
-    leftRotate1(v3);
+    leftRotateN(v3, 3);
     printArray(v3);
 }
 
@@ -24,6 +25,15 @@ void leftRotate1(vector<int> &data1)
             data1[i] = data1[i + 1];
         }
         data1[length - 1] = temp;
+    }
+}
+
+void leftRotateN(vector<int> &data1, int n)
+{
+    int meaningfulRotations = n % data1.size();
+    for (int i = 0; i < meaningfulRotations; i++)
+    {
+        leftRotate1(data1);
     }
 }
 
