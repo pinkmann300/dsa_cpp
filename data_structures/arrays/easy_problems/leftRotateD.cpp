@@ -17,7 +17,6 @@ int main()
 void leftRotateN(vector<int> &data1, int n)
 {
     int meaningfulRotations = n % data1.size();
-    cout << meaningfulRotations << endl;
     reverse(data1.begin(), data1.end());
     reverse(data1.begin(), data1.begin() + data1.size() - meaningfulRotations);
     reverse(data1.end() - meaningfulRotations, data1.end());
