@@ -57,6 +57,16 @@ vector<int> negPosBrute(vector<int> &data1)
     return ansArray;
 }
 
+vector<int> negPosOptimal(vector<int> &data1)
+{
+    int length = data1.size(); 
+    int positiveIndex = 0; 
+    int negativeIndex = 1; 
+    for (int i = 0; i < length; i++){
+
+    }
+}
+
 void printArray(vector<int> &data1)
 {
     for (int k : data1)
