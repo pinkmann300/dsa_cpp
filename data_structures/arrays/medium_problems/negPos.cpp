@@ -20,7 +20,7 @@ void printArray(vector<int> &data1);
 int main()
 {
     vector<int> arr1 = {1, 2, 3, -1, -2, -3};
-    vector<int> rearranged_array = negPosBrute(arr1);
+    vector<int> rearranged_array = negPosOptimal(arr1);
     printArray(rearranged_array);
 
     return -1;
@@ -59,12 +59,25 @@ vector<int> negPosBrute(vector<int> &data1)
 
 vector<int> negPosOptimal(vector<int> &data1)
 {
-    int length = data1.size(); 
-    int positiveIndex = 0; 
-    int negativeIndex = 1; 
-    for (int i = 0; i < length; i++){
-
+    int length = data1.size();
+    vector<int> ansArray(data1.size());
+    int positiveIndex = 0;
+    int negativeIndex = 1;
+    for (int i = 0; i < length; i++)
+    {
+        if (data1[i] > 0)
+        {
+            ansArray[positiveIndex] = data1[i];
+            positiveIndex += 2;
+        }
+        else
+        {
+            ansArray[negativeIndex] = data1[i];
+            negativeIndex += 2;
+        }
     }
+
+    return ansArray;
 }
 
 void printArray(vector<int> &data1)
