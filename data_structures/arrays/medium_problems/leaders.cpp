@@ -10,7 +10,7 @@ void printArray(vector<int> &data1);
 int main()
 {
     vector<int> arr1 = {10, 22, 12, 3, 0, 6};
-    vector<int> leaders = leadersOfArrayBrute(arr1);
+    vector<int> leaders = leadersOfArrayOptimal(arr1);
     printArray(leaders);
     return -1;
 }
@@ -38,6 +38,29 @@ vector<int> leadersOfArrayBrute(vector<int> &data1)
     }
 
     return leaderArr;
+}
+
+vector<int> leadersOfArrayOptimal(vector<int> &data1)
+{
+    int length = data1.size();
+    int maxi = INT_MIN;
+
+    cout << maxi << endl;
+    cout << length;
+
+    vector<int> leadersArr;
+
+    for (int i = length - 1; i >= 0; i--)
+    {
+        if (data1[i] > maxi)
+        {
+            cout << "true" << endl;
+            maxi = data1[i];
+            leadersArr.push_back(data1[i]);
+        }
+    }
+    printArray(leadersArr);
+    return leadersArr;
 }
 
 void printArray(vector<int> &data1)
