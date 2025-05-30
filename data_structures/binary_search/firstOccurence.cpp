@@ -6,6 +6,7 @@ using namespace std;
 int firstOccurence(vector<int> &arr1, int target);
 int lastOccurence(vector<int> &arr1, int target);
 int countOccurrences(vector<int> &arr1, int target);
+
 int main()
 {
     vector<int> v = {3, 4, 13, 13, 13, 13, 20, 40};
