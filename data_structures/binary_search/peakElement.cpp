@@ -34,7 +34,7 @@ int findPeakElement(vector<int> &arr, int low, int high)
         // Or, arr[mid] is a common point:
         else if (arr[mid] == arr[mid - 1] && arr[mid] == arr[mid + 1])
         {
-            int left = findPeakElement(arr, low, mid);
+            int left = findPeakElement(arr, low, mid - 1);
             int right = findPeakElement(arr, mid + 1, high);
             int ans = max(left, right);
             return ans;
@@ -50,7 +50,7 @@ int findPeakElement(vector<int> &arr, int low, int high)
 
 int main()
 {
-    vector<int> arr = {1, 2, 3, 7, 8, 5, 1};
+    vector<int> arr = {6, 6, 6, 2};
     int ans = findPeakElement(arr, 1, arr.size() - 2);
     cout << "The peak is at index: " << ans << "\n";
     return 0;
