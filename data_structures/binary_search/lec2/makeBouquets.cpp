@@ -36,7 +36,7 @@ bool possible(vector<int> &arr1, int k, int m, int days)
 {
     int noOfBouquets = 0;
     int count = 0;
-    for (int i = 0; i < arr1.size() - 1; i++)
+    for (int i = 0; i < arr1.size(); i++)
     {
         if (arr1[i] <= days)
         {
@@ -61,7 +61,10 @@ int minimumBouquets(vector<int> &arr1, int k, int m)
     }
 
     int low = *min_element(arr1.begin(), arr1.end());
+    cout << low << endl;
     int high = *max_element(arr1.begin(), arr1.end());
+
+    cout << high << endl;
     int minimumDays = 1;
 
     while (low <= high)
@@ -78,7 +81,7 @@ int minimumBouquets(vector<int> &arr1, int k, int m)
         }
     }
 
-    return minimumDays;
+    return low;
 }
 
 // Answer range will lie between - [min(arr) , max(arr)]
