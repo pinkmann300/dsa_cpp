@@ -6,12 +6,13 @@
 using namespace std;
 
 int kmiss(vector<int> &arr, int k);
+int kmiss2(vector<int> &arr, int k);
 
 int main()
 {
-    vector<int> vec = {4, 7, 9, 10};
+    vector<int> vec = {1, 2, 3, 4};
 
-    int ans = kmiss(vec, 4);
+    int ans = kmiss2(vec, 4);
     cout << "The missing number is: " << ans << "\n";
     return 0;
 }
@@ -35,5 +36,17 @@ int kmiss(vector<int> &arr, int k)
         }
     }
 
-    return (max_elem + k);
+    return (max_elem + (k - count));
+}
+
+int kmiss2(vector<int> &arr, int k)
+{
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] <= k)
+            k++; // shifting k
+        else
+            break;
+    }
+    return k;
 }
