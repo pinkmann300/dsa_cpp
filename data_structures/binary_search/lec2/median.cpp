@@ -48,3 +48,25 @@ double median(vector<int> &a, vector<int> &b)
     double median = ((double)arr3[n / 2] + (double)arr3[(n / 2) - 1]) / 2.0;
     return median;
 }
+
+double binaryMedian(vector<int> &arr1, vector<int> &arr2)
+{
+    int n1 = arr1.size();
+    int n2 = arr2.size();
+
+    if (n1 > n2)
+    {
+        return binaryMedian(arr2, arr1);
+    }
+
+    int low = 0;
+    int high = n1;
+    int left = (n1 + n2 + 1) / 2;
+
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        int mid1 = mid; 
+        int mid2 = 
+    }
+}
