@@ -18,55 +18,70 @@ int main()
 
 double median(vector<int> &a, vector<int> &b)
 {
-    // size of two given arrays:
-    int n1 = a.size(), n2 = b.size();
 
-    vector<int> arr3;
-    // apply the merge step:
-    int i = 0, j = 0;
-    while (i < n1 && j < n2)
+    // Run it on the array which is of shorter length.
+    if (a.size() > b.size())
     {
-        if (a[i] < b[j])
-            arr3.push_back(a[i++]);
-        else
-            arr3.push_back(b[j++]);
+        return median(b, a);
     }
 
-    // copy the left-out elements:
-    while (i < n1)
-        arr3.push_back(a[i++]);
-    while (j < n2)
-        arr3.push_back(b[j++]);
-
-    // Find the median:
-    int n = n1 + n2;
-    if (n % 2 == 1)
-    {
-        return (double)arr3[n / 2];
-    }
-
-    double median = ((double)arr3[n / 2] + (double)arr3[(n / 2) - 1]) / 2.0;
-    return median;
-}
-
-double binaryMedian(vector<int> &arr1, vector<int> &arr2)
-{
-    int n1 = arr1.size();
-    int n2 = arr2.size();
-
-    if (n1 > n2)
-    {
-        return binaryMedian(arr2, arr1);
-    }
+    int n1 = a.size();
+    int n2 = b.size();
 
     int low = 0;
-    int high = n1;
-    int left = (n1 + n2 + 1) / 2;
+    int high = a.size();
+
+    int leftLength = (a.size() + b.size() + 1) / 2;
 
     while (low <= high)
     {
-        int mid = (low + high) / 2;
-        int mid1 = mid; 
-        int mid2 = 
+        int mid1 = (low + high) / 2;
+        int mid2 = leftLength - mid1;
+        int l1 = INT_MIN;
+        int l2 = INT_MIN;
+        int r2 = INT_MAX;
+        int r1 = INT_MAX;
+
+        if (mid1 - 1 >= 0)
+        {
+            l1 = a[mid1 - 1];
+        }
+
+        if (mid2 - 1 >= 0)
+        {
+            l2 = b[mid2 - 1];
+        }
+
+        if (mid1 < n1)
+        {
+            r1 = a[mid1];
+        }
+        if (mid2 < n2)
+        {
+            r2 = b[mid2];
+        }
+
+        if (l1 <= r2 && l2 <= r1)
+        {
+            if ((n1 + n2) % 2 == 1)
+            {
+                return (max(l1, l2));
+            }
+            else
+            {
+                return ((double)(max(l1, l2)) + (double)(min(r1, r2))) / 2.0;
+            }
+        }
+
+        else if (l2 > r1)
+        {
+            low = mid1 + 1;
+        }
+        else
+        {
+            high = mid1 - 1;
+        }
     }
+
+    return 0;
 }
