@@ -30,9 +30,9 @@ int lengthOfll(Node *head)
 
     while (temp != NULL)
     {
-        temp = temp->next;
         count++;
-    }
+        temp = temp->next;
+        }
 
     return count;
 }
