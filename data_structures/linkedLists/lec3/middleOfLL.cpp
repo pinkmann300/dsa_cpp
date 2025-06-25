@@ -65,6 +65,24 @@ int middleElement(Node *head)
     return 0;
 }
 
+int optimalMid(Node *head)
+{
+    if (head == nullptr)
+    {
+        return -1;
+    }
+
+    Node *fast = head;
+    Node *slow = head;
+
+    while (fast->next != nullptr && fast != nullptr)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+
+    return slow->data;
+}
 int main()
 {
     // Creating a sample linked list:
@@ -75,7 +93,7 @@ int main()
     head->next->next->next->next = new Node(5);
 
     // Find the middle node
-    int middleValue = middleElement(head);
+    int middleValue = optimalMid(head);
 
     // Display the value of the middle node
     cout << "The middle node value is: " << middleValue << endl;
