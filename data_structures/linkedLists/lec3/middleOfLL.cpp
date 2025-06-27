@@ -83,6 +83,7 @@ int optimalMid(Node *head)
 
     return slow->data;
 }
+
 int main()
 {
     // Creating a sample linked list:
