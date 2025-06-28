@@ -45,7 +45,6 @@ def lengthOfll(node1 : ListNode):
     
     return count
 
-
 def searchElement(node1: ListNode, val) : 
     tempNode: ListNode = node1
     while (tempNode != None):
@@ -60,12 +59,6 @@ def deleteHead(node1: ListNode) :
     
     tempNode = node1
     return tempNode.next
-
-
-
-    
-
-
 
 # Main Program begins here. 
 x = ListNode(2, ListNode(4, None))
