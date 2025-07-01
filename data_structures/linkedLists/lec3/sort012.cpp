@@ -60,6 +60,11 @@ Node *sort012(Node *head)
             tail2 = temp;
         }
     }
+
+    tail0->next = (head1->next != nullptr) ? head1->next : head2->next;
+    tail1->next = head2->next;
+    tail2->next = nullptr;
+    return head0->next;
 }
 
 int main()
