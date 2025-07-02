@@ -19,11 +19,14 @@ class Stack:
     def getSize(self):
         return self.top + 1
     
+    def isEmpty(self):
+        return (self.top == -1); 
 
 # Main program goes here 
     
 if __name__ == "__main__":
     s = Stack()
+    print("Is stack empty", s.isEmpty())
     s.push(6)
     s.push(3)
     s.push(7)
