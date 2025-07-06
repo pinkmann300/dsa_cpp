@@ -29,9 +29,6 @@ class Queue:
 
         return self 
 
-
-       
-
     def pop(self): 
         if (self.currentSize == 0): 
             print("Queue is empty, no elements to pop")
