@@ -1,5 +1,8 @@
 #Simplest way to implement a stack in python is using lists. 
 
+#Dynamic size stacks1
+
+
 stack1 = []
 stack1.append(10)
 stack1.append(20)
