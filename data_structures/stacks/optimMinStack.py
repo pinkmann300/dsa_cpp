@@ -53,13 +53,5 @@ if __name__ == "__main__":
     ms.push(2) 
     print(ms.top)
     ms.push(1)
-
-    ms.push(0)
-    print(ms.top)
-    print(ms.arr);
     
-    print(ms.getTop()) 
-    ms.pop() 
-    print(ms.getTop()) 
-    print(ms.minElement) 
         
