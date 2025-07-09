@@ -8,13 +8,13 @@ def asteroidCollision(asteroids):
     collisionStack = [] 
     for i in range(len(asteroids) - 1, -1, -1):
         finalPush = asteroids[i]
-        while (collisionStack and collisionStack[len(collisionStack) - 1] < 0 and finalPush > 0):
-            topElem = collisionStack.pop()
+        while (collisionStack and collisionStack[0] < 0 and finalPush > 0):
+            topElem = collisionStack.pop(0)
             if (topElem + finalPush == 0):
                 finalPush = 0 
             else: 
                 finalPush = finalPush if (-1 * topElem < finalPush) else topElem
-        
-        collisionStack.insert(0,finalPush)
 
+        collisionStack.insert(0,finalPush)
     return collisionStack
+
