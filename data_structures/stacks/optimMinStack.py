@@ -6,9 +6,11 @@ class MinStack:
         self.top = -1 
         self.minElement = -1 
 
+
     def isEmpty(self): 
         return (len(self.arr) == 0) 
     
+
     def push(self, x): 
         if (self.top == -1): 
             print("Stack is empty") 
@@ -23,11 +25,13 @@ class MinStack:
                 self.minElement = x 
         self.top += 1 
 
+
     def getTop(self): 
         if (self.arr[self.top] < self.minElement): 
             return self.minElement 
         else:
             return self.arr[self.top] 
+        
 
     def pop(self) : 
         if (self.isEmpty()): 
