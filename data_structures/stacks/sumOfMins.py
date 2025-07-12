@@ -1,5 +1,7 @@
 #The problem will take care of the sum of minimums in a subarray 
 
+
+#The below is the brute force approach for 
 def sumMinSubarray (nums1): 
     totalSum = 0 
     for i in range(0, len(nums1)): 
@@ -11,10 +13,61 @@ def sumMinSubarray (nums1):
 
     return totalSum  
 
+def nextSmallerIndex(nums1): 
+    nseStack = []
+    nseIndexArr = [None] * len(nums1) 
+    for i in range(len(nums1) - 1, -1, -1): 
+        while (nseStack and nums1[nseStack[-1]] >= nums1[i]): 
+            nseStack.pop() 
+
+        nseIndex = None if not nseStack else nseStack[-1] 
+        nseStack.append(i)
+        nseIndexArr[i] = nseIndex
+    return nseIndexArr   
+
+
+def previousSmallerIndex(nums1): 
+    pseStack = [] 
+    pseIndexArr = [None] * len(nums1) 
+    for i in range(0, len(nums1)): 
+        while (pseStack and nums1[pseStack[-1]] >= nums1[i]): 
+            pseStack.pop() 
+
+        pseIndex = None if not pseStack else pseStack[-1] 
+        pseStack.append(i) 
+        pseIndexArr[i] = pseIndex
+    return pseIndexArr    
+
+
+def sumOfMins(nums1): 
+    pseArr = previousSmallerIndex(nums1) 
+    nseArr = nextSmallerIndex(nums1) 
+
+    print(pseArr) 
+    print(nseArr) 
+    totalSum = 0  
+    contribArr = []
+
+    for i in range(0, len(nums1)): 
+        left = 0 if pseArr[i] is None else (i - pseArr[i] - 1) 
+        right = 0 if nseArr[i] is None else (nseArr[i] - i - 1)
+        
+        print(nums1[i], left , right)
+
+        contribution = (left + right + 1) * nums1[i]
+        contribArr.append(contribution)
+        totalSum += contribution
+
+    print(contribArr)
+    
+    return totalSum
+
 
 if __name__=="__main__": 
-    nums1 = [11,81,94,43,3]
-    print(sumMinSubarray(nums1))
+    nums1 = [3,1,2,4]
+    newSum = sumOfMins(nums1) 
+    print(newSum)
+    
 
 
 

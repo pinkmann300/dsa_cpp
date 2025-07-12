@@ -3,6 +3,7 @@
 
 
 def numberOfNGEs(nums1, nums2): 
+    
     ngeDict = {} 
     ngeStack = [] 
     for i in range(len(nums2) - 1, -1, -1): 
