@@ -46,19 +46,9 @@ def sumOfMins(nums1):
     print(pseArr) 
     print(nseArr) 
     totalSum = 0  
-    contribArr = []
+    # Till this point the  program is tip-top. 
 
-    for i in range(0, len(nums1)): 
-        left = 0 if pseArr[i] is None else (i - pseArr[i] - 1) 
-        right = 0 if nseArr[i] is None else (nseArr[i] - i - 1)
-        
-        print(nums1[i], left , right)
-
-        contribution = (left + right + 1) * nums1[i]
-        contribArr.append(contribution)
-        totalSum += contribution
-
-    print(contribArr)
+    
     
     return totalSum
 
