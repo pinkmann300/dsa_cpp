@@ -90,8 +90,6 @@ def sumOfRanges(nums1):
 
     return maxSum - minSum
 
-
-
 if __name__=="__main__": 
     nums1 = [4,-2,-3,4,1]
     newSum = sumOfRanges(nums1) 
