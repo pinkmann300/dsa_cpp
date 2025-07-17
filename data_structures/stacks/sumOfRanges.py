@@ -1,5 +1,6 @@
 #The problem will take care of the sum of minimums in a subarray 
-#The below is the brute force approach for 
+#The below is the brute force approach for
+
 def sumMinSubarray (nums1): 
     totalSum = 0 
     for i in range(0, len(nums1)): 
@@ -23,7 +24,6 @@ def nextSmallerIndex(nums1):
         nseIndexArr[i] = nseIndex
     return nseIndexArr   
 
-
 def previousSmallerIndex(nums1): 
     pseStack = [] 
     pseIndexArr = [None] * len(nums1) 
@@ -34,7 +34,6 @@ def previousSmallerIndex(nums1):
         pseStack.append(i) 
         pseIndexArr[i] = pseIndex
     return pseIndexArr    
-
 
 def sumOfMins(nums1): 
     pseArr = previousSmallerIndex(nums1) 
@@ -70,8 +69,6 @@ def nextGreaterIndex(nums1):
         nseIndexArr[i] = nseIndex
     return nseIndexArr  
 
-
-
 def sumOfMaxes(nums1): 
     pgeArr = previousGreaterIndex(nums1) 
     ngeArr = nextGreaterIndex(nums1) 
@@ -82,7 +79,6 @@ def sumOfMaxes(nums1):
        contribution = left * right * nums1[i] 
        totalSum += contribution  
     return totalSum
-
 
 def sumOfRanges(nums1): 
     minSum = sumOfMins(nums1)
