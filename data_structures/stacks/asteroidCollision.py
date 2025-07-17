@@ -15,6 +15,6 @@ def asteroidCollision(asteroids):
             else: 
                 finalPush = finalPush if (-1 * topElem < finalPush) else topElem
 
-        collisionStack.insert(0,finalPush)
+        collisionStack.insert(0,finalPush) if finalPush != 0 else collisionStack
     return collisionStack
 

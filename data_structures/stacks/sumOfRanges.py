@@ -91,6 +91,3 @@ if __name__=="__main__":
     newSum = sumOfRanges(nums1) 
     print(newSum)
     
-
-
-
