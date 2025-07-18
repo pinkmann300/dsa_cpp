@@ -26,7 +26,7 @@ def previousSmaller(nums1):
     for i in range(0, len(nums1)):
         while (pseStack and nums1[pseStack[-1]] >= nums1[i]): 
             pseStack.pop() 
-        pseIndex = 0 if not pseStack else pseStack[-1] 
+        pseIndex = 0 if not pseStack else pseStack[-1] + 1 
         pseArr[i] = pseIndex 
         pseStack.append(i) 
     return pseArr
@@ -40,7 +40,7 @@ def largestArea(nums1):
     print(nseArr) 
     print(pseArr)
     for i in range(len(nums1)): 
-        area = (nseArr[i] - pseArr[i]) * nums1[i] 
+        area = ((nseArr[i] - pseArr[i]) + 1) * nums1[i] 
         maxArea = max(maxArea, area)
     return maxArea
 
