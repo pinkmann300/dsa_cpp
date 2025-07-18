@@ -51,7 +51,7 @@ def addTwoNumbers(l1, l2):
             head = head.next
             val2 = val2.next 
 
-        print(carry)
+        
         
         while (carry != 0): 
             nodeSum = carry % 10 
