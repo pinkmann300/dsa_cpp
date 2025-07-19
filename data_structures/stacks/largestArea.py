@@ -6,8 +6,6 @@
 # -- Multiply width with height and maintain 
 # -- a max area variable to keep it tight.
 
-
-
 def nextSmaller(nums1): 
     nseStack = [] 
     nseArr = [-1] * len(nums1) 
@@ -37,8 +35,6 @@ def largestArea(nums1):
     nseArr = nextSmaller(nums1) 
     pseArr = previousSmaller(nums1) 
 
-    print(nseArr) 
-    print(pseArr)
     for i in range(len(nums1)): 
         area = ((nseArr[i] - pseArr[i]) + 1) * nums1[i] 
         maxArea = max(maxArea, area)
