@@ -40,8 +40,31 @@ def largestArea(nums1):
         maxArea = max(maxArea, area)
     return maxArea
 
+
+def largestAreaOptimal(nums1): 
+    maxArea = 0 
+    pseStack = []
+    for i in range(0, len(nums1) - 1):
+        while (pseStack and nums1[pseStack[-1]] >= nums1[i]): 
+            element = nums1[pseStack.pop()] 
+            pse = -1 if not pseStack else pseStack[-1] 
+            nse = i 
+            area = element * (nse - pse - 1) 
+            maxArea = max(maxArea, area) 
+        
+        pseStack.append(i) 
+
+    while pseStack: 
+        nse = len(nums1) 
+        elem = nums1[pseStack.pop()]
+        pse = -1 if not pseStack else pseStack[-1] 
+        maxArea = max(maxArea, elem * (nse - pse - 1)) 
+    
+    return maxArea
+
+
 if __name__ == "__main__": 
     histogram = [2, 1, 5, 6, 2, 3, 1] 
-    area = largestArea(histogram) 
+    area = largestAreaOptimal(histogram) 
     print(area) 
 
