@@ -21,7 +21,6 @@ def printLL(head):
         print(head.val, "->", end=" ") 
         head = head.next 
 
-
 def findMiddle(head): 
     fast = head 
     slow = head 
@@ -58,7 +57,6 @@ def startingPointOfLoop(head):
             return fast 
     return -1 
 
-
 def lengthOfLoop(head): 
     fast = head 
     slow = head 
@@ -74,8 +72,6 @@ def lengthOfLoop(head):
                 count = count + 1 
             return count 
     return 0 
-
-
 
 def segregateOddEven(head): 
     evenHead = Node(-1)
@@ -99,11 +95,6 @@ def segregateOddEven(head):
     evenTail.next = oddHead.next 
     return evenHead.next 
 
-
-def removeNthNode(head): 
-    pass
-
-
 def deleteMiddle(head): 
     if head is None or head.next is None: 
         return None 
@@ -118,15 +109,54 @@ def deleteMiddle(head):
     slow.next = slow.next.next 
     return head 
 
-    
+def sort012(head): 
+    zeroList = Node(-1) 
+    oneList = Node(-1) 
+    twoList = Node(-1) 
 
+    zeroTemp = zeroList 
+    oneTemp = oneList 
+    twoTemp = twoList 
+    current = head 
+
+
+    while current is not None: 
+        temp = current.next
+        current.next = None
+        
+        if (current.val == 0): 
+            zeroTemp.next = current
+            zeroTemp = zeroTemp.next 
+        
+        elif (current.val == 1): 
+            oneTemp.next = current 
+            oneTemp = oneTemp.next 
+
+        elif (current.val == 2):
+          
+            twoTemp.next = current 
+            twoTemp = twoTemp.next
+
+        current = temp
+
+    totalNode = Node(-1) 
     
-  
-head = Node(1)
+    if (zeroList.next is not None):
+        totalNode.next = zeroList.next
+
+    if (oneList.next is not None): 
+        zeroTemp.next = oneList.next 
+
+    if (twoList.next is not None): 
+        oneTemp.next = twoList.next 
+
+    return totalNode.next 
+
+head = Node(0)
 node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
-node5 = Node(5)
+node3 = Node(2)
+node4 = Node(1)
+node5 = Node(1)
 
 head.next = node2
 node2.next = node3
@@ -134,6 +164,6 @@ node3.next = node4
 node4.next = node5
 
 # Check if there is a loop in the linked list
-newHead = segregateOddEven(head) 
+newHead = sort012(head) 
 printLL(newHead) 
 
