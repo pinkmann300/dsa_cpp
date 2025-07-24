@@ -62,7 +62,7 @@ def startingPointOfLoop(head):
 def lengthOfLoop(head): 
     fast = head 
     slow = head 
-    while (fast.next is not None or fast is not None): 
+    while (fast.next is not None and fast is not None): 
         fast = fast.next.next
         slow = slow.next 
 
@@ -99,6 +99,28 @@ def segregateOddEven(head):
     evenTail.next = oddHead.next 
     return evenHead.next 
 
+
+def removeNthNode(head): 
+    pass
+
+
+def deleteMiddle(head): 
+    if head is None or head.next is None: 
+        return None 
+
+    fast = head.next.next 
+    slow = head 
+
+    while (fast is not None or fast.next is not None): 
+        fast = fast.next.next 
+        slow = slow.next 
+
+    slow.next = slow.next.next 
+    return head 
+
+    
+
+    
   
 head = Node(1)
 node2 = Node(2)
