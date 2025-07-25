@@ -152,18 +152,38 @@ def sort012(head):
 
     return totalNode.next 
 
-head = Node(0)
-node2 = Node(2)
-node3 = Node(2)
-node4 = Node(1)
-node5 = Node(1)
+def add1(head): 
+    newHead = reverseLinkedList(head) 
+    temp = newHead 
+    sum = (temp.val + 1) % 10 
+    carry = 1
 
+    while (temp.next is not None): 
+        sum = (temp.val + carry)
+        carry = sum // 10 
+        temp.val = sum % 10 
+        temp = temp.next 
+        if (carry == 0): 
+            break
+
+    if (carry == 0):
+        return reverseLinkedList(newHead)
+    else: 
+        sum = (temp.val + carry) 
+        carry = sum // 10 
+        temp.val = sum % 10 
+        temp.next = Node(carry) 
+        return reverseLinkedList(newHead)
+
+
+head = Node(8)
+node2 = Node(4)
+node3 = Node(4)
 head.next = node2
 node2.next = node3
-node3.next = node4
-node4.next = node5
 
 # Check if there is a loop in the linked list
-newHead = sort012(head) 
-printLL(newHead) 
+newHead = add1(head)
+printLL(newHead)
+
 
