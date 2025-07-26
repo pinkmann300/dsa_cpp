@@ -242,11 +242,45 @@ def deleteDuplicates(head):
         
     return head 
 
+def lengthOfList(head): 
+    if head is None: 
+        return 0 
+    
+    temp = head
+    count = 0 
+    while (temp is not None): 
+        temp = temp.next 
+        count += 1 
+    return count 
 
-head = Node(1, Node(1, Node(2, Node(2, Node(2, None)))))
+
+
+def rotateLL(head, k): 
+    length = lengthOfList(head) 
+    rotations = k % length
+    temp = head
+
+    while temp.next is not None: 
+        temp = temp.next 
+        
+    temp.next = head 
+    rotCount = 0 
+    
+    while (rotCount != (length - rotations)):
+        temp = temp.next 
+        rotCount  += 1 
+
+    head = temp.next 
+
+    temp.next = None
+    return head
+        
+
+
+head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
 
 # Check if there is a loop in the linked list
-newHead = deleteDuplicates(head)
+newHead = rotateLL(head, 2)
 printLL(newHead)
 
 
