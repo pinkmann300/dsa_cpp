@@ -175,7 +175,6 @@ def add1(head):
         temp.next = Node(carry) 
         return reverseLinkedList(newHead)
     
-
 def add12(head): 
     newHead = reverseLinkedList(head) 
     temp = newHead 
@@ -187,7 +186,7 @@ def add12(head):
         carry = sum // 10 
 
         if carry == 0: 
-            break 
+            return reverseLinkedList
 
         if (temp.next is None and carry != 0): 
             temp.next = Node(carry) 
@@ -197,15 +196,40 @@ def add12(head):
     
     return reverseLinkedList(newHead) 
 
+def add2Num(head1, head2):
+    l1 = head1 
+    l2 = head2 
+    carry = 0 
 
-head = Node(8)
-node2 = Node(4)
-node3 = Node(4)
-head.next = node2
-node2.next = node3
+    ansHead = Node(-1) 
+    ansTail = ansHead 
+
+    while (l1 or l2 or carry): 
+        sum = 0
+        if (l1): 
+            sum += l1.val
+            l1 = l1.next 
+
+        if (l2): 
+            sum += l2.val 
+            l2 = l2.next 
+
+        sum += carry 
+
+        ansTail.next = Node(sum % 10) 
+        ansTail = ansTail.next 
+        carry = sum // 10 
+
+    return ansHead.next 
+
+
+
+head = Node(8, Node(3, Node(2)))
+head2 = Node(4, Node(4, Node(4)))
+
 
 # Check if there is a loop in the linked list
-newHead = add12(head)
+newHead = add2Num(head, head2)
 printLL(newHead)
 
 
