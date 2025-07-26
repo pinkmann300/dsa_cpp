@@ -13,6 +13,7 @@ def deleteAllOccurences(head, key):
         head = head.next
 
     temp = head 
+
     while temp is not None: 
         if (temp.val == key): 
             prevNode = temp.prev 
