@@ -222,14 +222,32 @@ def add2Num(head1, head2):
 
     return ansHead.next 
 
+def intersectionPoint(head1, head2): 
+    dummy1 = head1 
+    dummy2 = head2 
+
+    while (dummy1 != dummy2): 
+        dummy1 = head2 if dummy1 is None else dummy1.next 
+        dummy2 = head1 if dummy2 is None else dummy2.next 
+    
+    return dummy1 
+
+def deleteDuplicates(head): 
+    temp = head 
+    while (temp is not None): 
+        data = temp.val
+        while (temp.next and temp.next.val == data): 
+            temp.next = temp.next.next 
+        temp = temp.next 
+        
+    return head 
 
 
-head = Node(8, Node(3, Node(2)))
-head2 = Node(4, Node(4, Node(4)))
+head = Node(1, Node(1, Node(2, Node(2, Node(2, None)))))
 
 
 # Check if there is a loop in the linked list
-newHead = add2Num(head, head2)
+newHead = deleteDuplicates(head)
 printLL(newHead)
 
 
