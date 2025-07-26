@@ -245,7 +245,6 @@ def deleteDuplicates(head):
 
 head = Node(1, Node(1, Node(2, Node(2, Node(2, None)))))
 
-
 # Check if there is a loop in the linked list
 newHead = deleteDuplicates(head)
 printLL(newHead)
