@@ -257,7 +257,7 @@ def rotateLL(head, k):
     length = lengthOfList(head) 
     rotations = k % length
     temp = head
-    
+
     while temp.next is not None: 
         temp = temp.next 
     temp.next = head 
@@ -286,8 +286,14 @@ def printFromN(n):
         printFromN(n - 1)
     else: 
         print(n)    
-    
 
+
+def sumOfN(n):
+    if (n == 0): 
+        return 0
+    else: 
+        return sumOfN(n - 1) + n
+    
 
 # head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
 
@@ -295,3 +301,5 @@ def printFromN(n):
 # newHead = rotateLL(head, 2)
 # printLL(newHead)
 
+sum5 = sumOfN(5)
+print(sum5)
