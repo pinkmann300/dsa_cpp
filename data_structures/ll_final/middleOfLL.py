@@ -294,6 +294,12 @@ def sumOfN(n):
     else: 
         return sumOfN(n - 1) + n
     
+def factorial2(n): 
+    if n == 0: 
+        return 1 
+    else: 
+        return n * factorial2(n - 1)
+    
 
 # head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
 
@@ -301,5 +307,5 @@ def sumOfN(n):
 # newHead = rotateLL(head, 2)
 # printLL(newHead)
 
-sum5 = sumOfN(5)
+sum5 = factorial2(5)
 print(sum5)
