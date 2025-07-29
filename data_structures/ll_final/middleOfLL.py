@@ -257,6 +257,7 @@ def rotateLL(head, k):
     length = lengthOfList(head) 
     rotations = k % length
     temp = head
+    
     while temp.next is not None: 
         temp = temp.next 
     temp.next = head 
@@ -271,11 +272,26 @@ def rotateLL(head, k):
 def reverseLLinGroups(head, k): 
     pass 
 
+def printUpToN(n): 
+    if (n == 1):
+        print(1)
+    else: 
+        printUpToN(n - 1)
+        print(n)
+        
 
-head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
+def printFromN(n): 
+    if (n != 1): 
+        print(n)
+        printFromN(n - 1)
+    else: 
+        print(n)    
+    
 
-# Check if there is a loop in the linked list
-newHead = rotateLL(head, 2)
-printLL(newHead)
 
+# head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
+
+# # Check if there is a loop in the linked list
+# newHead = rotateLL(head, 2)
+# printLL(newHead)
 
