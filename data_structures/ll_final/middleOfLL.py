@@ -268,10 +268,7 @@ def rotateLL(head, k):
     head = temp.next 
     temp.next = None
     return head
-        
-def reverseLLinGroups(head, k): 
-    pass 
-
+    
 def printUpToN(n): 
     if (n == 1):
         print(1)
@@ -279,14 +276,12 @@ def printUpToN(n):
         printUpToN(n - 1)
         print(n)
         
-
 def printFromN(n): 
     if (n != 1): 
         print(n)
         printFromN(n - 1)
     else: 
         print(n)    
-
 
 def sumOfN(n):
     if (n == 0): 
@@ -300,12 +295,28 @@ def factorial2(n):
     else: 
         return n * factorial2(n - 1)
     
+def reverseLL(head): 
+    current = head 
+    prev = None 
+    
+    while current is not None: 
+        temp = current.next 
+        current.next = prev 
+        prev = current 
+        current = temp 
 
-# head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
+    return prev 
+
+
+
+
+head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
+newHead = reverseLL(head) 
+
+printLL(newHead)
+
+
 
 # # Check if there is a loop in the linked list
 # newHead = rotateLL(head, 2)
 # printLL(newHead)
-
-sum5 = factorial2(5)
-print(sum5)
