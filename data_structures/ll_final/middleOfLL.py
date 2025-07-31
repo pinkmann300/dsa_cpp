@@ -307,15 +307,55 @@ def reverseLL(head):
 
     return prev 
 
+def getKthNode(head, k): 
+    k = k - 1 
+    current = head 
+    while (k != 0 and current is not None):
+        current = current.next
+        k = k - 1 
+
+    return current  
+
+def reverseInGroupsOfk(head, k): 
+    revNode = Node(-1) 
+    revTail = revNode
+    current = head
+
+    while (current is not None or getKthNode(current, k) is not None): 
+        kthNode = getKthNode(current, k)
+        if kthNode is None: 
+            break 
+
+        temp = current
+        current = kthNode.next 
+        kthNode.next = None 
+
+        reversedTemp = reverseLL(temp) 
+        revTail.next = reversedTemp 
+
+        while (revTail.next is not None): 
+            revTail = revTail.next 
+
+    revTail.next = current 
+
+    return revNode.next 
 
 
+head = Node(5)
+head.next = Node(4)
+head.next.next = Node(3)
+head.next.next.next = Node(7)
+head.next.next.next.next = Node(9)
+head.next.next.next.next.next = Node(2)
 
-head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
-newHead = reverseLL(head) 
+print("Original Linked List: ", end="")
+printLL(head)
 
-printLL(newHead)
+# Reverse the linked list
+head = reverseInGroupsOfk(head, )
 
-
+print("\n")
+printLL(head)
 
 # # Check if there is a loop in the linked list
 # newHead = rotateLL(head, 2)
