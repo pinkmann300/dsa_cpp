@@ -352,7 +352,7 @@ print("Original Linked List: ", end="")
 printLL(head)
 
 # Reverse the linked list
-head = reverseInGroupsOfk(head, )
+head = reverseInGroupsOfk(head, 2)
 
 print("\n")
 printLL(head)
