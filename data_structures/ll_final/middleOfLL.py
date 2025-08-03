@@ -168,6 +168,7 @@ def add1(head):
 
     if (carry == 0):
         return reverseLinkedList(newHead)
+    
     else: 
         sum = (temp.val + carry) 
         carry = sum // 10 
@@ -340,6 +341,9 @@ def reverseInGroupsOfk(head, k):
 
     return revNode.next 
 
+def sortLL(head1, head2): 
+    pass 
+
 
 head = Node(5)
 head.next = Node(4)
@@ -352,9 +356,10 @@ print("Original Linked List: ", end="")
 printLL(head)
 
 # Reverse the linked list
-head = reverseInGroupsOfk(head, 2)
+head = reverseInGroupsOfk(head, 6)
 
 print("\n")
+print("Reversed linked list: ")
 printLL(head)
 
 # # Check if there is a loop in the linked list
