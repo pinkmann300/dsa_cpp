@@ -84,8 +84,3 @@ head.next.next.next.child = Node(17)
 
 
 printLL(flattenLinkedList2(head))
-
-
-    
-
-    
