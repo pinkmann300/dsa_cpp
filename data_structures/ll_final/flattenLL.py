@@ -61,6 +61,15 @@ def flattenLinkedList(head):
     head = merge2Heads(head, mergedHead)
     return head
 
+def flattenLinkedList2(head):
+    temp = head 
+    mergedHead = temp
+
+    while (temp is not None and temp.next is not None):
+        mergedHead = merge2Heads(mergedHead, temp.next) 
+        temp = temp.next  
+    
+    return mergedHead
 
 
 head = Node(5)
@@ -74,7 +83,7 @@ head.next.next.next = Node(7)
 head.next.next.next.child = Node(17) 
 
 
-printLL(flattenLinkedList(head))
+printLL(flattenLinkedList2(head))
 
 
     
