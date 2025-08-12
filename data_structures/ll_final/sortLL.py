@@ -5,17 +5,13 @@ class Node:
 
 
 def findMiddle(head):
-
     if head is None or head.next is None:
         return head
-
     slow = head
     fast = head.next
-
     while fast is not None and fast.next is not None:
         slow = slow.next
         fast = fast.next.next
-
     return slow
 
 
@@ -43,17 +39,12 @@ def mergeTwoSortedLists(left,right):
 
 
 def sortedLinkedList(head):
-
     if (head is None or head.next is None): 
         return head; 
-
-
     middleNode = findMiddle(head) 
-
     right = middleNode.next 
     middleNode.next = None
     left = head 
-
     left = sortedLinkedList(left)
     right = sortedLinkedList(right) 
     return mergeTwoSortedLists(left, right)
@@ -63,8 +54,6 @@ def printLinkedList(head):
     while head is not None: 
         print(head.data, " -> ", end="") 
         head = head.next 
-
-
 
 
 head = Node(3)
