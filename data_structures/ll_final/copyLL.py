@@ -34,7 +34,6 @@ def printClonedLinkedList(head):
             print(", Random: nullptr")
         head = head.next
 
-
 # Main function
 if __name__ == "__main__":
     # Example linked list: 7 -> 14 -> 21 -> 28
