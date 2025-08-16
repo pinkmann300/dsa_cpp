@@ -78,4 +78,12 @@ def palindromeCheck(string1):
     return True
 
 
-print(palindromeCheck("sas"))
+def linearSearch(list1, target):
+    if (len(list1) == 0): 
+        return False 
+    elif (list1[0] == target):
+        return True 
+    else:
+        return False or linearSearch(list1[1:], target)
+
+print(linearSearch([1,2,3,4,5], 1))
