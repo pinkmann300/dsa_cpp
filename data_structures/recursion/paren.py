@@ -85,5 +85,11 @@ def linearSearch(list1, target):
         return True 
     else:
         return False or linearSearch(list1[1:], target)
+    
+def revNum(num1):
+    if num1 < 10: 
+        return num1 * 10 
+    else: 
+        return 
 
 print(linearSearch([1,2,3,4,5], 1))
