@@ -56,5 +56,26 @@ def countZeros(n, count):
         else: 
             return countZeros(n // 10, count)
         
-print(countZeros(10000000, 0))
 
+def countStepsToZero(n, count): 
+    if (n == 0): 
+        return count
+    else: 
+        if (n % 2 == 0): 
+            return countStepsToZero(n // 2, count + 1) 
+        else: 
+            return countStepsToZero(n - 1, count + 1) 
+
+def palindromeCheck(string1): 
+    left = 0 
+    right = len(string1) - 1
+    while (left <= right): 
+        if (string1[left] != string1[right]): 
+            return False
+        else: 
+            left += 1 
+            right -= 1 
+    return True
+
+
+print(palindromeCheck("sas"))
