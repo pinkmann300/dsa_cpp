@@ -157,11 +157,18 @@ def generateParen(num1, genVal):
     if num1 == 0: 
         return [genVal] 
     else: 
+
+
         k = generateParen(num1 - 1, '(' + genVal + ')')
-        r = generateParen(num1 - 2, '()' + genVal '()')
+        r = generateParen(num1 - 1,  genVal + '()')
+        l = generateParen(num1 - 1, '()' + genVal)
 
-        return k + r 
+        return (k + r + l)
 
+def pow(x, n): 
+    if (n == 0): 
+        return 1 
+    else: 
+        return x * pow(x, n - 1)
 
-
-print(generateParen(4, ""))
+print(pow(3, 2))
