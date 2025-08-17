@@ -86,10 +86,33 @@ def linearSearch(list1, target):
     else:
         return False or linearSearch(list1[1:], target)
     
-def revNum(num1):
-    if num1 < 10: 
-        return num1 * 10 
-    else: 
-        return 
+def iterativeCom(list1): 
+    allCombos = []
+    for i in range(len(list1)): 
+        result = [list1[i]] 
+        print(result)
+        allCombos.append(result.copy())
+        for j in range(i + 1, len(list1)): 
+            result.append(list1[j])
+            allCombos.append(result.copy()); 
+    return allCombos
 
-print(linearSearch([1,2,3,4,5], 1))
+
+def subsetPrint(string1, val):
+    if (string1 == ""): 
+        return [val] if val != '' else []
+    else:
+        r = subsetPrint(string1[1:], val)
+        k = subsetPrint(string1[1:], val + (string1[0])) 
+        return (r + k)
+
+def generateParen(num1, genVal): 
+    if num1 == 1: 
+        return genVal 
+    else: 
+        k = generateParen(num1 - 1, '(' + genVal + ')')
+        r = generateParen(num1 - 1, '()' + genVal)
+
+        return k + r
+
+print(subsetPrint("abc", ""))
