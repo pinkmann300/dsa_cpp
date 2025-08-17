@@ -115,4 +115,20 @@ def generateParen(num1, genVal):
 
         return k + r
 
-print(subsetPrint("abc", ""))
+def generateBinaryStringsHelper(num1, genVal): 
+    if (num1 == 0): 
+        print(genVal) 
+    else: 
+        generateBinaryStringsHelper(num1 - 1, genVal + "0")
+        if (len(genVal) == 0) or genVal[-1] != '1':
+            generateBinaryStringsHelper(num1 - 1, genVal + "1")
+
+def generateAllBinStrings(num1, genVal): 
+    if (num1 == 0): 
+        print(genVal) 
+    else: 
+        generateAllBinStrings(num1 - 1, genVal=genVal + "0") 
+        generateAllBinStrings(num1 - 1, genVal=genVal + "1") 
+
+generateAllBinStrings(3, "")
+
