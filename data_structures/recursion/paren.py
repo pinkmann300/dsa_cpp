@@ -138,6 +138,14 @@ def generateAllBinStringsList(num1, genVal):
         r = generateAllBinStringsList(num1 - 1, genVal=genVal + "1")
 
         return (k + r )
-     
+    
+def subsequences(string1, genVal): 
+    if (string1 == ""): 
+        return [genVal] if genVal != '' else []
+    else: 
+        k = subsequences(string1[1:], genVal + string1[0]) 
+        r = subsequences(string1[1:], genVal) 
+        return (k + r)      
 
-print(generateAllBinStringsList(3, ""))
+
+print(subsequences("abc", ""))
