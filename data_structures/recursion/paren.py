@@ -106,12 +106,9 @@ def subsetPrint(string1, val):
         k = subsetPrint(string1[1:], val + (string1[0])) 
         return (r + k)
 
-def generateParen(num1, genVal): 
-    if num1 == 1: 
-        return genVal 
-    else: 
-        k = generateParen(num1 - 1, '(' + genVal + ')')
-        r = generateParen(num1 - 1, '()' + genVal)
+
+
+        
 
         return k + r
 
@@ -155,6 +152,16 @@ def powerSet(numbers, genVal):
         r = powerSet(numbers[1:], genVal) 
 
         return k + r 
+    
+def generateParen(num1, genVal): 
+    if num1 == 0: 
+        return [genVal] 
+    else: 
+        k = generateParen(num1 - 1, '(' + genVal + ')')
+        r = generateParen(num1 - 2, '()' + genVal '()')
 
-list1 = []
-print(powerSet([1,2,3], list1))
+        return k + r 
+
+
+
+print(generateParen(4, ""))
