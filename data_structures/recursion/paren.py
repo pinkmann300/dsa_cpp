@@ -146,6 +146,15 @@ def subsequences(string1, genVal):
         k = subsequences(string1[1:], genVal + string1[0]) 
         r = subsequences(string1[1:], genVal) 
         return (k + r)      
+    
+def powerSet(numbers, genVal): 
+    if (len(numbers) == 0): 
+        return [genVal] 
+    else:
+        k = powerSet(numbers[1:], genVal + [(numbers[0])]) 
+        r = powerSet(numbers[1:], genVal) 
 
+        return k + r 
 
-print(subsequences("abc", ""))
+list1 = []
+print(powerSet([1,2,3], list1))
