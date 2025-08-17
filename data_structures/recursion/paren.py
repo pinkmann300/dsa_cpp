@@ -130,5 +130,14 @@ def generateAllBinStrings(num1, genVal):
         generateAllBinStrings(num1 - 1, genVal=genVal + "0") 
         generateAllBinStrings(num1 - 1, genVal=genVal + "1") 
 
-generateAllBinStrings(3, "")
+def generateAllBinStringsList(num1, genVal): 
+    if (num1 == 0): 
+        return [genVal] 
+    else: 
+        k = generateAllBinStringsList(num1 - 1, genVal=genVal + "0") 
+        r = generateAllBinStringsList(num1 - 1, genVal=genVal + "1")
 
+        return (k + r )
+     
+
+print(generateAllBinStringsList(3, ""))
