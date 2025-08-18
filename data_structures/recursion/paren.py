@@ -170,5 +170,27 @@ def pow(x, n):
         return 1 
     else: 
         return x * pow(x, n - 1)
+    
+
+def powerRepSq(x, n): 
+    if n == 0: 
+        return 1 
+    
+    ans = 1
+    while (n):
+        if (n % 2 == 1): 
+            ans = ans * x 
+        else: 
+            x = x * x 
+        
+
+def recursiveAtoI(string1, genVal): 
+    if (string1 == ""):
+        return genVal 
+    else: 
+        if (string1[-1].numeric())
+     
+
+
 
 print(pow(3, 2))
