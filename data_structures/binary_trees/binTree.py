@@ -46,8 +46,16 @@ def inOrder(tree):
     arr = [] 
     inOrderTraversal(tree, arr) 
     return arr
-        
 
+
+def reverseStack(stack, revStack): 
+    if (len(stack) == 0): 
+        return revStack 
+    else: 
+        k = stack.pop()
+        return reverseStack(stack, revStack + [k])
+
+    
 if __name__ == "__main__":
     # Creating a sample binary tree
     root = Node(1)
@@ -67,3 +75,8 @@ if __name__ == "__main__":
     for val in result:
         print(val, end=" ")
     print()
+
+    print(1//2)
+
+    k  = [1,2,23,4,5,6,7] 
+    print(reverseStack(k, []))
