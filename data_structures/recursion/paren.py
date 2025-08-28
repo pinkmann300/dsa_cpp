@@ -106,12 +106,6 @@ def subsetPrint(string1, val):
         k = subsetPrint(string1[1:], val + (string1[0])) 
         return (r + k)
 
-
-
-        
-
-        return k + r
-
 def generateBinaryStringsHelper(num1, genVal): 
     if (num1 == 0): 
         print(genVal) 
@@ -157,8 +151,6 @@ def generateParen(num1, genVal):
     if num1 == 0: 
         return [genVal] 
     else: 
-
-
         k = generateParen(num1 - 1, '(' + genVal + ')')
         r = generateParen(num1 - 1,  genVal + '()')
         l = generateParen(num1 - 1, '()' + genVal)
@@ -172,25 +164,41 @@ def pow(x, n):
         return x * pow(x, n - 1)
     
 
-def powerRepSq(x, n): 
-    if n == 0: 
-        return 1 
-    
-    ans = 1
-    while (n):
-        if (n % 2 == 1): 
-            ans = ans * x 
-        else: 
-            x = x * x 
+# def powerRepSq(x, n): 
+#     if n == 0: 
+#         return 1
+#     ans = 1
+#     while (n):
+#         if (n % 2 == 1): 
+#             ans = ans * x 
+#         else: 
+#             x = x * x 
         
 
-def recursiveAtoI(string1, genVal): 
-    if (string1 == ""):
-        return genVal 
+# def recursiveAtoI(string1, genVal): 
+#     if (string1 == ""):
+#         return genVal 
+#     else: 
+#         if (string1[-1].numeric()):
+#             pass 
+
+#While the function has not finished executing, the function remains in the stack. 
+#Once the function has completed execution down to it's last line, it will get popped off
+#the stack.
+        
+#Function calls keep getting pushed into the stack as and when they are called recursively 
+# and only gets popped out after the base case is hit.  Once the function gets popped off the stack 
+#the flow of program gets returned to where that function was called.  If a function is called again and again 
+# it will be treated as a seperate entity on the call stack. Every call takes memory on the stack and since no 
+# element is getting popped off, the stack runs out of memory to accomodate and that is when you run into a 
+# "stack overflow" error. 
+    
+
+def fibo(n): 
+    if (n == 0) or (n == 1): 
+        return n 
     else: 
-        if (string1[-1].numeric())
-     
+        return fibo(n - 1) + fibo(n - 2) 
+    
 
-
-
-print(pow(3, 2))
+print(fibo(6))
