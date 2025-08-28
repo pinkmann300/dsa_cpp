@@ -200,5 +200,20 @@ def fibo(n):
     else: 
         return fibo(n - 1) + fibo(n - 2) 
     
+def binRec(arr, low, high, target): 
+    if (low > high):
+        return -1 
+    else: 
+        mid = (low + high) // 2
+        if (arr[mid] == target): 
+            return mid 
+    
+        if (arr[mid] > target): 
+            return binRec(arr, low, mid-1 , target)
+        
+        if (arr[mid] < target): 
+            return binRec(arr, mid + 1, high, target)
 
-print(fibo(6))
+arr = [1,2,3,3,4,5,6,67] 
+k = binRec(arr, 0, len(arr) - 1, 67)
+print(k)
