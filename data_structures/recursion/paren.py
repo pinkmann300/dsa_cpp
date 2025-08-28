@@ -163,7 +163,6 @@ def pow(x, n):
     else: 
         return x * pow(x, n - 1)
     
-
 # def powerRepSq(x, n): 
 #     if n == 0: 
 #         return 1
@@ -193,7 +192,6 @@ def pow(x, n):
 # element is getting popped off, the stack runs out of memory to accomodate and that is when you run into a 
 # "stack overflow" error. 
     
-
 def fibo(n): 
     if (n == 0) or (n == 1): 
         return n 
