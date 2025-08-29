@@ -7,6 +7,16 @@ def recursiveSorted(arr):
         else: 
             return False 
         
+def linearSearch(arr, index, target, results): 
+    if (index == len(arr)): 
+        return results
+    else: 
+        if arr[index] == target:
+            return linearSearch(arr, index + 1, target, results + [index])  
+        else: 
+            return linearSearch(arr, index + 1, target, results)
+
+        
 
 arr = [1,2,3,4,5,4]
-print(recursiveSorted(arr))
+print(linearSearch(arr, 0, 4, []))
