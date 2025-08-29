@@ -36,4 +36,14 @@ def sumOfDigits(n):
         return unitsPlace + sumOfDigits(n // 10)
 
 
-print(sumOfDigits(1234))
+def prodOfDigits(n): 
+    if (n < 10): 
+        return n
+    else: 
+        unitsPlace = n % 10 
+        if unitsPlace == 0: 
+            return 0 
+        else:
+            return unitsPlace * prodOfDigits(n // 10)
+        
+print(prodOfDigits(1204))
