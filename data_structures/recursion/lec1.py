@@ -67,12 +67,26 @@ def palindrome(val, s, h):
             return palindrome(val, s + 1, h - 1) 
         else: 
             return False 
+        
+def countZeros(val, count): 
+    if (val == 0): 
+        return count 
+    else: 
+        units = val % 10 
+        if (units == 0): 
+            return countZeros(val // 10, count + 1) 
+        else: 
+            return countZeros(val//10, count)
+        
+
+def countStepsToZero(n, count): 
+    if n == 0:
+        return count 
+    else: 
+        if (n % 2 == 0): 
+            return countStepsToZero(n // 2, count + 1) 
+        return countStepsToZero(n - 1, count + 1)
 
 
-
-    
-
-print(revNum(-123, 0, 1))
-print(-123 % 10)
-
-print(palindrome("malayala", 0, 7))
+print(countZeros(100, 0))
+print(countStepsToZero(14, 0))
