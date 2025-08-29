@@ -14,9 +14,7 @@ def linearSearch(arr, index, target, results):
         if arr[index] == target:
             return linearSearch(arr, index + 1, target, results + [index])  
         else: 
-            return linearSearch(arr, index + 1, target, results)
-
-        
+            return linearSearch(arr, index + 1, target, results)       
 
 arr = [1,2,3,4,5,4]
 print(linearSearch(arr, 0, 4, []))
