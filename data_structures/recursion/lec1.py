@@ -46,4 +46,13 @@ def prodOfDigits(n):
         else:
             return unitsPlace * prodOfDigits(n // 10)
         
-print(prodOfDigits(1204))
+def revNum(n, val): 
+    if (n < 10): 
+        return (val * 10) + n 
+    else: 
+        units = n % 10 
+        val = (val * 10) + units 
+        return revNum(n // 10, val)
+    
+
+print(revNum(1234, 0))
