@@ -46,13 +46,33 @@ def prodOfDigits(n):
         else:
             return unitsPlace * prodOfDigits(n // 10)
         
-def revNum(n, val): 
-    if (n < 10): 
-        return (val * 10) + n 
+def revNum(n, val, multiplier): 
+    if (n == 0): 
+        return val * multiplier
     else: 
-        units = n % 10 
-        val = (val * 10) + units 
-        return revNum(n // 10, val)
+        if (n < 0):
+            n = -1 * n
+            return revNum(n, val, -1)
+        else:
+            units = n % 10 
+            val = (val * 10) + units 
+            return revNum(n // 10, val, multiplier)
+        
+
+def palindrome(val, s, h): 
+    if (s >= h):
+        return True 
+    else: 
+        if (val[s] == val[h]): 
+            return palindrome(val, s + 1, h - 1) 
+        else: 
+            return False 
+
+
+
     
 
-print(revNum(1234, 0))
+print(revNum(-123, 0, 1))
+print(-123 % 10)
+
+print(palindrome("malayala", 0, 7))
