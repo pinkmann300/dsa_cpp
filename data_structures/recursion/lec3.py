@@ -58,6 +58,76 @@ def generateSubsets(arr, genVal):
 
         return k + r
     
+def generateParenthesis(genVal, open, close): 
+    if (close == 0): 
+        return [genVal] 
+    else: 
+        if (open == close): 
+            return generateParenthesis(genVal + '(', open - 1, close)
+        
+        if (open < close and open > 0): 
+            k = generateParenthesis(genVal + '(', open - 1 , close)
+            r = generateParenthesis(genVal + ')', open, close - 1)
+            return k + r 
+        elif (open == 0): 
+            return generateParenthesis(genVal + ')', open, close - 1)
+    
+def countSubsequences(arr, target, genVal, count): 
+    if (len(arr) == 0): 
+        if (sum(genVal) == target):
+            return count + 1
+        else: 
+            return count
+    else: 
+        k = countSubsequences(arr[1:], target, genVal + [arr[0]], count)
+        r = countSubsequences(arr[1:], target, genVal, count)
 
+        return k + r 
+
+def checkSubsequences(arr, target, genVal, count): 
+    if (len(arr) == 0): 
+        if (sum(genVal) == target):
+            return True
+        else: 
+            return False
+    else: 
+        k = checkSubsequences(arr[1:], target, genVal + [arr[0]], count)
+        r = checkSubsequences(arr[1:], target, genVal, count)
+
+        return (k or r)
+
+def letterCombinations(digits,genVal):
+        map1 = {'2' : ["a", "b", "c"], 
+               '3' : ["d", "e", "f"],
+               '4' : ["g", "h", "i"], 
+               '5' : ["j", "k", "l"], 
+               '6' : ["m", "n", "o"], 
+               '7' : ["p", "q", "r", "s"], 
+               '8' : ["t", "u", "v"],
+               '9' : ["w", "x", "y", "z"]} 
+
+        if (len(digits) == 0): 
+            if len(genVal) > 0:
+                return [genVal]
+            else: 
+                return []
+        else: 
+            if (digits[0] == '7' or digits[0] == '9'): 
+                k = letterCombinations(digits[1:], genVal + map1[digits[0]][0]) 
+                r = letterCombinations(digits[1:], genVal + map1[digits[0]][1])
+                n = letterCombinations(digits[1:], genVal + map1[digits[0]][2])
+                w = letterCombinations(digits[1:], genVal + map1[digits[0]][3])
+                return k + r + n + w 
+            else: 
+                k = letterCombinations(digits[1:], genVal + map1[digits[0]][0]) 
+                r = letterCombinations(digits[1:], genVal + map1[digits[0]][1])
+                n = letterCombinations(digits[1:], genVal + map1[digits[0]][2])
+
+                return k + r + n 
+
+
+print(letterCombinations("237", ""))
+
+         
 
 # Iterative functions begin here. 
