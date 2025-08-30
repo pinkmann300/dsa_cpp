@@ -215,3 +215,6 @@ def binRec(arr, low, high, target):
 arr = [1,2,3,3,4,5,6,67] 
 k = binRec(arr, 0, len(arr) - 1, 67)
 print(k)
+
+
+

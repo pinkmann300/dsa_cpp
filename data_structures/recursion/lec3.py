@@ -8,4 +8,14 @@ def tri1(n):
         print("*" * n, end = "\n")
         
 
-tri1(4)
+def removeAs(s, genVal): 
+    if (s == ""): 
+        return genVal 
+    else: 
+        if (s[0] == 'a'): 
+            return removeAs(s[1:], genVal)
+        else: 
+            return removeAs(s[1:], genVal + s[0])
+        
+k = "saaandeep" 
+print(removeAs(k, ""))
