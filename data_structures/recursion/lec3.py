@@ -126,8 +126,4 @@ def letterCombinations(digits,genVal):
                 return k + r + n 
 
 
-print(letterCombinations("237", ""))
-
-         
-
-# Iterative functions begin here. 
+print(letterCombinations("237", "")) 
