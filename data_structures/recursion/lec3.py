@@ -7,7 +7,6 @@ def tri1(n):
         tri1(n - 1)
         print("*" * n, end = "\n")
         
-
 def removeAs(s, genVal): 
     if (s == ""): 
         return genVal 
@@ -26,7 +25,6 @@ def subset(arr, genVal):
 
         return k + r
     
-
 def subsequences(s, genVal): 
     if (len(s) == 0):
         if genVal is not None:  
@@ -125,5 +123,15 @@ def letterCombinations(digits,genVal):
 
                 return k + r + n 
 
+def subsetGenIterative(arr): 
+    subsets = [] 
+    subsets.append([]) 
+    for i in arr:
+        for j in range(len(subsets)):
+            newSubset = subsets[j] + [i]
+            subsets.append(newSubset)
+    return subsets 
 
-print(letterCombinations("237", "")) 
+            
+k = subsetGenIterative([1,2,3])
+print(k)
