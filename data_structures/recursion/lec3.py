@@ -132,5 +132,31 @@ def subsetGenIterative(arr):
             subsets.append(newSubset)
     return subsets 
 
-            
-k = subsetGenIterative([1,2,3,4,5,6,7])
+
+#Now we will see how to ensure that no duplicates exist in the subsets that we generate. 
+#Duplicate subsets arise when there is a possibility of duplicate elements in the array. 
+#Most questions give us the leeway of presenting the results in any order that works. 
+
+#Only add the element to the newly created subsets in the previous set. Because of the above point, 
+#we need to ensure that duplicates have to be together. 
+
+
+def subsetGenIterativeDup(arr): 
+    subsets = [] 
+    subsets.append([]) 
+    end = 0 
+    for i in range(len(arr)):
+        start = 0 
+        if (i > 0 and arr[i] == arr[i -1]): 
+            start = end + 1
+        end = len(subsets) - 1
+        for j in range(start, end + 1):
+            newSubset = subsets[j] + [arr[i]]
+            subsets.append(newSubset)
+    return subsets 
+
+
+k = subsetGenIterativeDup([1,2,2])
+print(k)
+
+
