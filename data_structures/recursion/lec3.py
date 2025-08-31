@@ -133,5 +133,4 @@ def subsetGenIterative(arr):
     return subsets 
 
             
-k = subsetGenIterative([1,2,3])
-print(k)
+k = subsetGenIterative([1,2,3,4,5,6,7])
