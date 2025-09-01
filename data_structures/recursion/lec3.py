@@ -140,8 +140,8 @@ def subsetGenIterative(arr):
 #Only add the element to the newly created subsets in the previous set. Because of the above point, 
 #we need to ensure that duplicates have to be together. 
 
-
 def subsetGenIterativeDup(arr): 
+    arr.sort()
     subsets = [] 
     subsets.append([]) 
     end = 0 
@@ -155,8 +155,15 @@ def subsetGenIterativeDup(arr):
             subsets.append(newSubset)
     return subsets 
 
+def subsetSum(arr): 
+    subsetSums = [0] 
+    for i in arr: 
+        for j in range(len(subsetSums)): 
+            subsetSums.append(subsetSums[j] + i) 
+    return subsetSums
 
-k = subsetGenIterativeDup([1,2,2])
+k = subsetSum([5,2,1])
+k.sort() 
 print(k)
 
 
