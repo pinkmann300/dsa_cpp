@@ -155,6 +155,7 @@ def subsetGenIterativeDup(arr):
             subsets.append(newSubset)
     return subsets 
 
+#Iterative 
 def subsetSum(arr): 
     subsetSums = [0] 
     for i in arr: 
@@ -162,7 +163,18 @@ def subsetSum(arr):
             subsetSums.append(subsetSums[j] + i) 
     return subsetSums
 
-k = subsetSum([5,2,1])
+#Recursive 
+def subsetSumRec(arr, sum): 
+    if len(arr) == 0: 
+        return [sum]
+    else: 
+        k = subsetSumRec(arr[1:], sum + arr[0]) 
+        r = subsetSumRec(arr[1:], sum) 
+
+        return k + r 
+    
+
+k = subsetSumRec([5,2,1], 0)
 k.sort() 
 print(k)
 
