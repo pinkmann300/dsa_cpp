@@ -16,7 +16,6 @@ def tab(n):
         count += 1
     return dp[n]
 
-
 def spaceOptim(n): 
     prev_2 = 0 
     prev_1 = 1
@@ -26,8 +25,7 @@ def spaceOptim(n):
         prev_2 = prev_1 
         prev_1 = current 
         index += 1 
-    return current 
-
+    return current
 
 k = spaceOptim(5)
 print(k)
