@@ -16,7 +16,21 @@ def frogJumpTab(n, heights):
     return dp[n] 
 
 
+def frogJumpMemoization(n, heights, dp):
+    if n == 0: 
+        return 0 
+    if n == 1: 
+        return (abs(heights[0] - heights[1])) 
+    if dp[n] != -1: 
+        return dp[n] 
+    else: 
+        jumpOne = frogJumpMemoization(n - 1, heights, dp) + (abs(heights[n - 1] -heights[n])) 
+        jumpTwo = frogJumpMemoization(n - 2, heights, dp) + (abs(heights[n - 2] - heights[n])) 
+        dp[n] = min(jumpOne, jumpTwo) 
+        return dp[n]
+
 height = [30, 10, 60, 10, 60, 50]
 n = 5
 
-print(frogJumpTab(n, height))
+dp = [-1] * 6
+print(frogJumpMemoization(5, height, dp))
