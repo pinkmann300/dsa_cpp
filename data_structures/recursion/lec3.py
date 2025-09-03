@@ -132,7 +132,6 @@ def subsetGenIterative(arr):
             subsets.append(newSubset)
     return subsets 
 
-
 #Now we will see how to ensure that no duplicates exist in the subsets that we generate. 
 #Duplicate subsets arise when there is a possibility of duplicate elements in the array. 
 #Most questions give us the leeway of presenting the results in any order that works. 
@@ -173,9 +172,54 @@ def subsetSumRec(arr, sum):
 
         return k + r 
     
+# def combSum1(arr, index, target, genVal): 
+#     if (index == len(arr)): 
+#         if (target == 0):  #Case when the subset sums up to the target and we are at the end of the list.
+#             return [genVal] 
+#         else:              #Case when we are at the end of the list but the target does not sum upto the subset sum. 
+#             return []  
+#     elif (target == 0):  
+#         return [genVal] 
+#     else: 
+#         if (target < arr[index]): 
+#             return []
+#         else:  
+#             pickedCaseRep = combSum1(arr, index, target - arr[index], genVal + [arr[index]]) 
+#             unPickedCase = combSum1(arr, index + 1, target , genVal)
+#             pickedCaseNoRep = combSum1(arr, index + 1, target - arr[index], genVal + [arr[index]])
+#             return (pickedCaseRep + unPickedCase + pickedCaseNoRep)
+    
+def combSum1(arr, index, target, genVal): 
+    if target == 0:
+        return [genVal]
+    if index == len(arr) or target < 0:
+        return []
 
-k = subsetSumRec([5,2,1], 0)
-k.sort() 
+    # Pick current element (repetition allowed → stay at same index)
+    pick = combSum1(arr, index, target - arr[index], genVal + [arr[index]])
+    # Do not pick current element → move to next index
+    skip = combSum1(arr, index + 1, target, genVal)
+    
+    return pick + skip
+
+def combSum2(arr, index, target, genVal):
+    if target == 0:
+        return [genVal]
+    if index == len(arr) or target < 0:
+        return []
+
+    results = []
+
+    for i in range(index, len(arr)):
+        # Skip duplicates (only skip if it's not the first index at this level)
+        if i > index and arr[i] == arr[i - 1]:
+            continue
+        if arr[i] > target:
+            break  # Optimization: no point in exploring further
+        # Recurse with i + 1 to ensure no repetition
+        results += combSum2(arr, i + 1, target - arr[i], genVal + [arr[i]])
+
+    return results
+
+k = combSum2([1,1,2,5,6,7,8,10], 0, 8, [])
 print(k)
-
-
