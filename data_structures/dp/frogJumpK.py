@@ -24,14 +24,33 @@ def frogJumpMemo(n, heights, k, dp):
                 minJump = min(minJump, jumps) 
         dp[n] = minJump
         return dp[n] 
+    
 
+def printSubsequences(arr, genVal): 
+    if (len(arr) == 0): 
+        return [genVal] 
+    else: 
+        k = printSubsequences(arr[1:], genVal + [arr[0]]) 
+        r = printSubsequences(arr[1:], genVal) 
+        return k + r   
+    
 
-height = [30,10,60,10,60,50] 
+def iterativeSubsequences(arr): 
+    results = [] 
+    results.append([]) 
+
+    for k in range(len(arr)):     
+        elem = arr[k] 
+        for i in range(len(results)): 
+            newResult = results[i] + [elem] 
+            results = results + [newResult] 
+
+    return results 
+
+height = [10,20,30,40,50] 
 n = 5 
 k = 2 
-
-dp = [-1] * 6
-l = frogJumpMemo(5, height, 2, dp) 
-print("Frog jump: ", l) 
+m = len(iterativeSubsequences(height)) 
+print(m)
 
 
