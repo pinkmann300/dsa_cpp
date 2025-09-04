@@ -13,13 +13,10 @@ def maxSumNonAdj(arr):
         dp[i] = max(pick, nonPick) 
     return dp[n-1] 
 
-
-
 def robberies(arr): 
     ans1 = maxSumNonAdj(arr[1:]) 
     ans2 = maxSumNonAdj(arr[0:len(arr) - 1]) 
     return max(ans1, ans2)
-
 
 arr = [2,3,2] 
 print(robberies(arr)) 
