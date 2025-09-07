@@ -23,20 +23,38 @@ def minPathMemo(grid, row, col, dp):
     return dp[row][col]
 
     
+def minPathTabulation(row, col, grid): 
+    dp = [[-1] * len(grid[0])] * len(grid) 
+    for i in range(row):
+        for j in range(col): 
+            if i == 0 and j == 0: 
+                dp[i][j] = grid[0][0]
+                continue 
+
+            up = int(1e9)
+            left = int(1e9)
+
+            if i > 0: 
+                up = dp[i - 1][j] + grid[i][j] 
+            
+            if j > 0: 
+                left = dp[i][j - 1] + grid[i][j] 
+
+            dp[i][j] = min(up, left) 
+    return dp[row - 1][col - 1]
+
 
 def main():
     # Example matrix with values representing cell costs.
     matrix = [[5, 9, 6],
               [11, 5, 2]]
     
-   
-
     n = len(matrix)
     m = len(matrix[0])
     dp = [[-1 for j in range(m)] for i in range(n)]
 
     # Call the minSumPath function and print the result.
-    print(minPathMemo(matrix, n - 1, m - 1, dp))
+    print(minPathTabulation( n , m , matrix))
 
 
 if __name__ == '__main__':
