@@ -1,13 +1,10 @@
 def uniqPathRec(grid, row, col): 
     if (grid[row][col] == -1): 
         return 0 
-    
     if (row == 0 and col == 0): 
         return 1 
-    
     if (row < 0 or col < 0):
         return 0 
-    
     else: 
         up = uniqPathRec(grid, row - 1, col)
         left = uniqPathRec(grid, row, col - 1) 
@@ -18,16 +15,12 @@ def uniqPathRec(grid, row, col):
 def uniqPathMemo(grid, row, col, dp): 
     if (grid[row][col] == -1): 
         return 0 
-    
     if (row == 0 and col == 0):
         return 1 
-    
     if (row < 0 or col < 0): 
         return 0 
-    
     if (dp[row][col] != -1): 
         return dp[row][col]
-    
     else: 
         up = uniqPathMemo(grid, row - 1, col, dp)
         left = uniqPathMemo(grid, row, col - 1, dp)
@@ -56,10 +49,6 @@ def uniqPathsTabulation(grid, row, col):
     print(dp)
     return dp[row-1][col - 1] 
             
-
-            
-    
-
 dp = [[-1] * 3] * 3 
 maze = [[0, 0, 0], [0, -1, 0], [0, 0, 0]]
 n = len(maze)
@@ -67,5 +56,4 @@ m = len(maze[0])
 
     # Call the mazeObstacles function and print the result.
 print(uniqPathMemo(maze,n - 1, m - 1, dp))
-
 print(uniqPathsTabulation(maze, n, m))
