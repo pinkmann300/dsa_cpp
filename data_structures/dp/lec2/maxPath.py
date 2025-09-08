@@ -1,10 +1,9 @@
 def maxPath(row,  col,  matrix): 
     if (row == 0 and col >= 0 and col < len(matrix[0])): 
         return matrix[row][col]
-
     if (row < 0 or col < 0 or col >= len(matrix[0]) or row >= len(matrix)): 
         return int(-1e9)
- 
+    
     up = int(-1e9) 
     leftDiagonal = int(-1e9) 
     upperDiagonal = int(-1e9) 
@@ -21,10 +20,37 @@ def maxPath(row,  col,  matrix):
     return max(up, max(leftDiagonal, upperDiagonal)) 
 
 
-def maxPathFinal(matrix): 
+def maxPathMemo(row, col, matrix, dp): 
+    if (row == 0 and col >= 0 and col < len(matrix[0])): 
+        return matrix[row][col] 
+
+    if (row < 0 or col < 0 or col >= len(matrix[0]) or row >= len(matrix)): 
+        return int(-1e9) 
+    
+    if (dp[row][col] != -1): 
+        return dp[row][col] 
+    
+    up = int(-1e9) 
+    leftDiagonal = int(-1e9) 
+    upperDiagonal = int(-1e9) 
+
+    if (row > 0): 
+        up = matrix[row][col] + maxPathMemo(row - 1, col, matrix, dp) 
+
+    if (col > 0 and row > 0): 
+        leftDiagonal = matrix[row][col] + maxPathMemo(row - 1, col - 1, matrix, dp) 
+
+    if (col < len(matrix[0]) - 1 and row > 0): 
+        upperDiagonal = matrix[row][col] + maxPathMemo(row - 1, col + 1, matrix, dp) 
+
+    dp[row][col] = max(up, max(leftDiagonal, upperDiagonal)) 
+    return dp[row][col] 
+
+def maxPathFinal(matrix):
+    dp = [[-1 for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
     maxPathSum = int(-1e9) 
     for j in range(0, len(matrix[0])): 
-        newMax = maxPath(len(matrix) - 1, j, matrix) 
+        newMax = maxPathMemo(len(matrix) - 1, j, matrix, dp) 
         maxPathSum = max(newMax, maxPathSum) 
 
     return maxPathSum
