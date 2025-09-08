@@ -46,6 +46,29 @@ def maxPathMemo(row, col, matrix, dp):
     dp[row][col] = max(up, max(leftDiagonal, upperDiagonal)) 
     return dp[row][col] 
 
+def maxPathTab(matrix): 
+    dp = [[0 for _ in range(len(matrix[0]))] for _ in range(len(matrix))] 
+    for i in range(len(matrix[0])): 
+        dp[0][i] = matrix[0][i]
+
+    for row in range(1, len(matrix)): 
+        for j in range(len(matrix[0])):
+            up = dp[row - 1][j] + matrix[row][j]
+            diagDown = int(-1e9) 
+            leftDiag = int(-1e9)
+            
+            if j > 0:
+                diagDown = dp[row - 1][j - 1] + matrix[row][j]
+            
+            if j < len(matrix[0]) - 1: 
+                leftDiag = dp[row - 1][j + 1] + matrix[row][j]
+            
+            dp[row][j] = max(up, max(diagDown, leftDiag))
+    maxi = 0 
+    for k in range(len(matrix[0])): 
+        maxi = max(maxi, dp[len(matrix) - 1][k]) 
+    return maxi     
+
 def maxPathFinal(matrix):
     dp = [[-1 for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
     maxPathSum = int(-1e9) 
@@ -58,5 +81,5 @@ def maxPathFinal(matrix):
 
 
 matrix = [[1, 2, 10, 4], [100, 3, 2, 1], [1, 1, 20, 2], [1, 2, 2, 1]]
-k = maxPathFinal(matrix) 
+k = maxPathTab(matrix) 
 print(k) 
