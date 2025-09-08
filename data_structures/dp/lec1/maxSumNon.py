@@ -2,10 +2,8 @@ def maxSumNonAdj(arr):
     n = len(arr) 
     dp = [-1] * n 
     dp[0] = arr[0] 
-
     for i in range(1,n): 
         pick = arr[i] 
-
         if i > 1: 
             pick += dp[i - 2] 
         nonPick = dp[i - 1]
