@@ -8,7 +8,6 @@ def subsetSumEqTok(ind, target, arr):
         if (arr[ind] <= target): 
             pickedCase = subsetSumEqTok(ind - 1, target - arr[ind], arr) 
         unPickedCase = subsetSumEqTok(ind - 1, target, arr)  
-
         return (pickedCase or unPickedCase) 
     
 def subsetSumEqtoKMem(ind, target, arr, dp): 
@@ -34,16 +33,22 @@ def subMemo(target, arr):
 def subSumTab(target, arr): 
     dp = [[False for _ in range(target + 1)] for _ in range(len(arr))]
     for k in range(len(arr)): 
-        dp[k][0] = True 
-    for row in range(len(arr)): 
-        for col in range(1, target): 
-            pass 
+        dp[k][0] = True
 
+    if arr[0] <= target: 
+        dp[0][arr[0]] = True 
 
+    for index in range(len(arr)): 
+        for targetVal in range(1, target + 1): 
+            notTaken  = dp[index - 1][targetVal] 
+            taken = False 
+            if (arr[index] <= targetVal): 
+                taken = dp[index-1][targetVal - arr[index]]
+            dp[index][targetVal] = taken or notTaken
+    
+    return dp[len(arr) - 1][target] 
 
-
-
-
+            
 arr = [3,6,5]
-k = subMemo(8, arr) 
+k = subSumTab(8, arr) 
 print(k)
