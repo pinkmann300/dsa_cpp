@@ -33,13 +33,11 @@ def partitionMemoizer(sum1, ind, arr, dp):
         return False 
     if (dp[ind][sum1] != -1): 
         return dp[ind][sum1] 
-    
     taken = False 
     if (arr[ind] <= sum1): 
         taken = partitionMemoizer(sum1 - arr[ind], ind -1 , arr, dp) 
     notTaken = partitionMemoizer(sum1, ind - 1, arr, dp)  
     dp[ind][sum1] = taken or notTaken
-
     return dp[ind][sum1] 
  
 def partitionMemoStart(sum1, ind, arr): 
@@ -51,10 +49,8 @@ def partitionTabulation(sum1, ind, arr):
     dp = [[False for _ in range(sum1 + 1)] for _ in range(ind + 1)] 
     for index in range(ind + 1): 
         dp[index][0] = True 
-    
     if (arr[0] <= sum1): 
         dp[0][arr[0]] = True 
-
     for row in range(1,ind + 1): 
         for column in range(1, sum1 + 1): 
             taken = False 
@@ -63,7 +59,6 @@ def partitionTabulation(sum1, ind, arr):
                 taken = dp[row - 1][column - arr[row]]
             dp[row][column] = taken or notTaken 
     return dp[ind][sum1] 
-
 
 arr = [2,3,3,3,4,5] 
 l = partitionSubsetHelper(arr) 
