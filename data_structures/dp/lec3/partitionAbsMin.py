@@ -5,7 +5,6 @@ def partitionAbsMinRec(arr, index, sum1):
     notTaken = partitionAbsMinRec(arr, index - 1, sum1) 
     return min(taken, notTaken) 
 
-
 def partitionStarter(arr): 
     totalSum = sum(arr) 
     dp = [[-1 for _ in range(totalSum + 1)] for _ in range(len(arr))]  
@@ -17,7 +16,6 @@ def partitionStarter(arr):
             diff = abs(l - (totalSum - l)) 
             mini = min(diff, mini) 
     return mini 
-
 
 def partitionMemoizer(arr, ind, sum1, dp): 
     if (sum1 == 0): 
