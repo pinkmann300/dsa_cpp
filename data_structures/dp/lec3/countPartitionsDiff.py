@@ -60,8 +60,6 @@ def countSubsetsGivenDiff(arr, difference):
     else: 
         return countSubsetsTabulation(arr, s1_sum // 2) 
 
-
-
 arr = [5,2,6,4]
 k = 3
 print(countSubsetsGivenDiff(arr, 3)) 
