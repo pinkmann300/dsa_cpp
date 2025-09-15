@@ -1,5 +1,5 @@
 def coinDenom(arr, target): 
-    return coinDenomRec(arr, target, len(arr) - 1)
+    return coinDenomMemStart(arr, target) 
 
 def coinDenomRec(arr, target, index): 
     if (target == 0): 
@@ -14,6 +14,33 @@ def coinDenomRec(arr, target, index):
         taken = 1 + coinDenomRec(arr, target - arr[index], index) 
     notTaken = coinDenomRec(arr, target, index - 1) 
     return min(taken, notTaken) 
+
+
+def coinDenomMem(arr, target, index, dp):
+    if (target == 0): 
+        return 0 
+    if index == 0 :
+        if (target % arr[index] == 0):
+            return target // arr[index] 
+        else: 
+            return int(1e9) 
+    if dp[index][target] != -1: 
+        return dp[index][target] 
+    
+    taken = int(1e9) 
+    if (arr[index] <= target): 
+        taken = 1 + coinDenomRec(arr, target - arr[index], index) 
+    notTaken = coinDenomRec(arr, target, index - 1) 
+    dp[index][target] = min(taken, notTaken) 
+    return dp[index][target] 
+
+
+def coinDenomMemStart(arr, target): 
+    dp = [[-1 for _ in range(target + 1)] for _ in range(len(arr))] 
+    return coinDenomMem(arr, target, len(arr) - 1, dp) 
+
+
+
     
 arr = [1,2,3] 
 target = 7 
