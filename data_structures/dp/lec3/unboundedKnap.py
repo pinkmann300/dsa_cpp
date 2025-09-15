@@ -30,11 +30,30 @@ def unboundedMemS(weight, wts, val):
     return unboundedMemo(weight, wts, val,len(weight) - 1 ,dp) 
 
 
+def unboundedTabulation(weight, wts, val): 
+    dp = [[0 for _ in range(wts + 1)] for _ in range(len(weight))] 
+    for i in range(wts + 1): 
+        dp[0][i] = (i // weight[0]) * val[0]
+
+    for row in range(1, len(weight)): 
+        for wtsVal in range(wts + 1): 
+            notTaken = dp[row - 1][wtsVal] 
+            taken = 0 
+            if (weight[row] <= wtsVal): 
+                taken = val[row] + dp[row][wtsVal - weight[row]] 
+            dp[row][wtsVal] = max(taken, notTaken) 
+    return dp[len(weight) - 1][wts] 
+
+            
+
+
+
+
 
 wt = [2, 4, 6]
 val = [5, 11, 13]
 W = 10
-print(unboundedMemS(wt, W, val))
+print(unboundedTabulation(wt, W, val))
 
 
 
