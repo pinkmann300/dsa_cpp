@@ -51,8 +51,6 @@ def rodCuttingTabulation(arr):
     print(dp)
     return dp[n - 1][n]
 
-
-
 arr = [2,5,7,8,10] 
 k = rodCutting(arr) 
 print(k)
