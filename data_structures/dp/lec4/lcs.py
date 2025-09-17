@@ -56,6 +56,43 @@ def printlongestCSubRec(s1, s2, ind1, ind2, cs):
         else: 
             maxVal = s2Inclu 
 
-        return maxVal     
+        return maxVal
 
-print(longestCommonSubTabulation("adebc", "dcadb")) 
+def printlongestCommonSubTabulation(s1, s2):
+    ind1 = len(s1) 
+    ind2 = len(s2) 
+
+    dp = [[0 for _ in range(ind2 + 1)] for _ in range(ind1 + 1)] 
+
+    for index1 in range(1,ind1 + 1): 
+        for index2 in range(1,ind2 + 1): 
+            if (s1[index1 - 1] == s2[index2 - 1]): 
+                dp[index1][index2] = 1 + dp[index1 - 1][index2 - 1] 
+            else: 
+                indexMoves = max(dp[index1 - 1][index2], dp[index1][index2 - 1]) 
+                dp[index1][index2] = indexMoves
+    i = ind1 - 1
+    j = ind2 - 1
+
+    stringRet = "" 
+
+
+    while (i >= 0 and j >= 0): 
+        if (s1[i] == s2[j]): 
+            stringRet = s1[i] + stringRet 
+            i = i - 1 
+            j = j - 1 
+        else: 
+            left = dp[i][j - 1]
+            up = dp[i - 1][j] 
+            if (left > up): 
+                j = j - 1 
+            else: 
+                i = i - 1
+
+    return stringRet
+
+
+
+
+print(printlongestCommonSubTabulation("adebc", "dcadb")) 
