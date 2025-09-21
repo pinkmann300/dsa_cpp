@@ -30,9 +30,6 @@ def shortestSuperSeq(s1, s2):
             else: 
                 superSequence = s2[colIndex - 1] + superSequence
                 colIndex = colIndex - 1 
-
-
-
     
     while (rowIndex > 0): 
         superSequence = s1[rowIndex - 1] + superSequence 
