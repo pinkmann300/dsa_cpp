@@ -11,8 +11,7 @@ def shortestSuperSeq(s1, s2):
             else: 
                 indexMoves = max(dp[index1 - 1][index2], dp[index1][index2 - 1]) 
                 dp[index1][index2] = indexMoves
-
-
+                
     colIndex = len(s1)   
     rowIndex = len(s2) 
     

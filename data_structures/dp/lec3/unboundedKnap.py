@@ -44,12 +44,6 @@ def unboundedTabulation(weight, wts, val):
             dp[row][wtsVal] = max(taken, notTaken) 
     return dp[len(weight) - 1][wts] 
 
-            
-
-
-
-
-
 wt = [2, 4, 6]
 val = [5, 11, 13]
 W = 10
