@@ -92,7 +92,4 @@ def printlongestCommonSubTabulation(s1, s2):
 
     return stringRet
 
-
-
-
 print(printlongestCommonSubTabulation("adebc", "dcadb")) 
