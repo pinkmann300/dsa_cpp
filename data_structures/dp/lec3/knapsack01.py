@@ -28,8 +28,6 @@ def knapsackTab(weight, weights, val):
                 taken = val[index2] +  dp[index2 - 1][weightIndex - weights[index2]]
             dp[index2][weightIndex] = max(taken, notTaken) 
             ans = max(dp[index2][weightIndex], ans) 
-    
-
     return dp[len(weights)-1][weight] 
 
 
