@@ -17,10 +17,8 @@ def distinctSubMemo(ind1, ind2, s1, s2, dp):
         return 1 
     if ind1 < 0: 
         return 0 
-    
     if dp[ind1][ind2] != -1: 
         return dp[ind1][ind2] 
-    
     if (s1[ind1] == s2[ind2]): 
         taken = distinctSubMemo(ind1 - 1, ind2 - 1, s1, s2, dp)
         notTaken = distinctSubMemo(ind1 - 1, ind2, s1, s2, dp)  
@@ -29,8 +27,6 @@ def distinctSubMemo(ind1, ind2, s1, s2, dp):
     else: 
         dp[ind1][ind2] = distinctSubMemo(ind1 - 1, ind2, s1, s2, dp)    
         return dp[ind1][ind2] 
-    
-
 
 s1 = "babgbag"
 s2 = "bag"
