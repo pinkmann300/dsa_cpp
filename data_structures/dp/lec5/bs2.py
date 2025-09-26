@@ -31,5 +31,25 @@ def bs2MemStart(arr):
     dp = [[-1 for _ in range(2)] for _ in range(len(arr))] 
     return bs2Memo(0, 0, arr, dp) 
 
+
+def bs2Tabulation(arr): 
+    dp = [[0 for _ in range(2)] for _ in range(len(arr) + 1)] 
+
+    dp[len(arr)][1] = 0 
+    dp[len(arr)][0] = 0 
+
+    for i in range(len(arr) - 1, -1, -1): 
+        for buy in range(2): 
+            if buy == 0: 
+                op1 = -arr[i] + dp[i + 1][1]
+                op2 = 0 + dp[i + 1][0] 
+            if buy == 1: 
+                op1 = arr[i] + dp[i + 1][0] 
+                op2 = dp[i + 1][1] 
+
+            dp[i][buy] = max(op1, op2) 
+
+    return dp[0][0]            
+
 arr = [7, 1, 5, 3, 6, 4] 
-print(bs2MemStart(arr)) 
+print(bs2Tabulation(arr)) 
