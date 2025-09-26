@@ -48,7 +48,6 @@ def bs2Tabulation(arr):
                 op2 = dp[i + 1][1] 
 
             dp[i][buy] = max(op1, op2) 
-
     return dp[0][0]            
 
 arr = [7, 1, 5, 3, 6, 4] 
