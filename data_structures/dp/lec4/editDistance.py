@@ -49,9 +49,6 @@ def editDistTabulation(s1, s2):
     
     return dp[ind1][ind2] 
 
-
-
-
 s1 = "horse"
 s2 = "ros"
     # Calculate and print the minimum number of operations required
