@@ -36,7 +36,6 @@ def bsCapMemStart(arr):
     dp = [[[-1 for _ in range(3)] for _ in range(2)] for _ in range(len(arr))] 
     return bsCapRecMemo(arr, 0, 2, 0, dp) 
 
-
 def bsCapTabulate(arr): 
     dp = [[[0 for _ in range(3)] for _ in range(2)] for _ in range(len(arr) + 1)] 
     for i in range(len(arr) - 1, -1, -1): 
@@ -53,9 +52,24 @@ def bsCapTabulate(arr):
                 dp[i][j][k] = max(op1, op2) 
     return dp[0][0][2] 
 
+def bsCapTab(arr, cap): 
+    dp = [[[0 for _ in range(cap + 1)] for _ in range(2)] for _ in range(len(arr) + 1)] 
+    for i in range(len(arr) - 1, -1, -1): 
+        for j in range(2): 
+            for k in range(1,cap + 1): 
+                if j == 0: 
+                    op1 = -arr[i] + dp[i + 1][1][k] 
+                    op2 = dp[i + 1][0][k] 
+
+                if j == 1: 
+                    op1 = arr[i] + dp[i + 1][0][k - 1] 
+                    op2 = dp[i + 1][1][k] 
+
+                dp[i][j][k] = max(op1, op2) 
+    return dp[0][0][2]
 
  
 
 prices = [3, 3, 5, 0, 0, 3, 1, 4]
-max_profit = bsCapTabulate(prices)  
+max_profit = bsCapTab(prices, 2)  
 print(max_profit)
