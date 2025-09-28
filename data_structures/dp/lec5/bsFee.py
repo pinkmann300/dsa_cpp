@@ -54,6 +54,7 @@ def bsFeeTab(arr, fee):
     return dp[0][0]
 
 
+
 prices = [1, 3, 2, 8, 4, 9]
 n = len(prices)
 fee = 2
