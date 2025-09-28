@@ -26,9 +26,16 @@ def lisMem(ind, prev_index, arr, dp):
 
 def lisMemStart(arr): 
     dp = [[-1 for _ in range(len(arr) + 1)] for _ in range(len(arr))] 
-    return lisMem(0, -1, arr, dp) 
+    return lisMem(0, -1, arr, dp)
 
 
+# def lisTabulate(arr): 
+#     dp = [[0 for _ in range(len(arr) + 1)] for _ in range(len(arr))]
+#     for i in range(len(arr) - 1, -1, -1):
+#         for j in range(i - 1, -1, -1):
+#             notTaken = dp[i + 1][j] 
+#             taken = 0 
+#             if (arr[i] < arr[j]) 
 
 prices = [7,6,2,8] 
 print(lisMemStart(prices)) 
