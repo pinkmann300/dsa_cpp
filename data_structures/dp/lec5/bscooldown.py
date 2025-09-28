@@ -35,6 +35,23 @@ def bscMem(arr):
     dp = [[-1 for _ in range(2)] for _ in range(len(arr))] 
     return bscMemo(0, arr, 0, dp) 
 
+def bscTab(arr): 
+    dp = [[0 for _ in range(2)] for _ in range(len(arr) + 2)] 
+    
+    for i in range(len(arr) - 1, -1, -1): 
+        for j in range(2): 
+            if (j == 0): 
+                op1 = -arr[i] + dp[i + 1][1] 
+                op2 = dp[i + 1][0] 
+
+            if j == 1: 
+                op1 = arr[i] + dp[i + 2][0] 
+                op2 = dp[i + 1][1] 
+
+            dp[i][j] = max(op1, op2) 
+
+    return (dp[0][0]) 
+ 
 
 prices = [4, 9, 0, 4, 10]
-print(bscMem(prices)) 
+print(bscTab(prices)) 
