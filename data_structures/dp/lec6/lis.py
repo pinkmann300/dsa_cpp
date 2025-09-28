@@ -11,7 +11,7 @@ def lis(ind, arr, prev_index):
     return max(taken, notTaken) 
 
 
-prices = [4,6,2,8] 
+prices = [7,6,2,8] 
 print(lis(0,prices, -1)) 
 
 
