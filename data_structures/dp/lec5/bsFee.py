@@ -35,11 +35,27 @@ def bsMemo(arr, fee):
     dp = [[-1 for _ in range(2)] for _ in range(len(arr))]
     return (bsFee2(arr, 0, 0, fee, dp)) 
 
+def bsFeeTab(arr, fee): 
+    dp = [[0 for _ in range(2)] for _ in range(len(arr) + 1)] 
+    dp[len(arr)][0] = 0 
+    dp[len(arr)][1] = 0 
 
+    for i in range(len(arr) - 1, -1, -1): 
+        for k in range(2): 
+            if (k == 0): 
+                op1 = -arr[i] + dp[i + 1][1] 
+                op2 = dp[i + 1][0] 
+            if (k == 1): 
+                op1 = arr[i] - fee + dp[i + 1][0] 
+                op2 = dp[i + 1][1] 
+            
+            dp[i][k] = max(op1, op2) 
+
+    return dp[0][0]
 
 
 prices = [1, 3, 2, 8, 4, 9]
 n = len(prices)
 fee = 2
-result = bsMemo(prices,fee) 
+result = bsFeeTab(prices,fee) 
 print(f"The maximum profit that can be generated is {result}")
