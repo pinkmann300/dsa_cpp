@@ -16,3 +16,25 @@ def binToN(n):
         n = n // 10
     return decimal 
 
+def numberPow2(n): 
+    if n == 0: 
+        return True 
+    else: 
+        return (n & (n - 1) == 0) 
+
+
+def swap2(a,b): 
+    a = a ^ b 
+    b = a ^ b
+    a = a ^ b
+
+    return a, b
+
+def oddOccurence(arr): 
+    finalXor = 0 
+    for i in arr: 
+        finalXor = finalXor ^ i 
+    return (finalXor) 
+
+print(oddOccurence([2,2,4,4,5]))
+
