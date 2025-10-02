@@ -36,5 +36,12 @@ def oddOccurence(arr):
         finalXor = finalXor ^ i 
     return (finalXor) 
 
+def xorLR(l, r): 
+    finalXor = l 
+    for i in range(l, r + 1): 
+        finalXor = finalXor ^ i 
+
+    return finalXor
+
 print(oddOccurence([2,2,4,4,5]))
 
