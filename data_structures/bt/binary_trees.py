@@ -10,7 +10,6 @@ binTree1 = BTree(5, BTree(6, None, BTree(7, None)), None)
 #   6        7
 #N      N N      N 
 
-
 def heightOfTree(root): 
     if root is None: 
         return 0 
@@ -53,4 +52,3 @@ def traversalStart(tree):
     postOrder(tree, arr)
     return arr  
 
-print(traversalStart(binTree1))
