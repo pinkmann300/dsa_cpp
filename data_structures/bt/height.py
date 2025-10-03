@@ -7,8 +7,6 @@ def height1(tree):
 
     if tree is None: 
         return height 
-    
-   
 
     q = deque()
     q.append(tree)
