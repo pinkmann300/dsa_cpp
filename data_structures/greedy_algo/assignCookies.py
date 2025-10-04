@@ -13,6 +13,6 @@ def assignCookies(students, cookie):
     return studentIndex
 
 student = [1, 2, 3]
-cookie = [1, 1]
+cookie = [1,2]
 
 print(assignCookies(student, cookie))
