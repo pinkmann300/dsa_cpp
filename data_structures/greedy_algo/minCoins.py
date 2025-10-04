@@ -12,7 +12,6 @@ def minCoins(denominations, target):
             return totalCoins
         
 
-
 V = 49
 coins = [1, 2, 5, 10, 20, 50, 100, 500, 1000]
 print(minCoins(coins, V))
