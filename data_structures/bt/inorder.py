@@ -17,5 +17,4 @@ def inorder(tree):
 
     return results 
 
-
 print(inorder(binTree1))
