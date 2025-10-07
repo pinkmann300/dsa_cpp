@@ -221,5 +221,25 @@ def combSum2(arr, index, target, genVal):
 
     return results
 
-k = combSum2([1,1,2,5,6,7,8,10], 0, 8, [])
+def combinationSum2(arr, target): 
+    arr.sort() 
+    return combiSum20(arr, 0, target, [], []) 
+    
+def combiSum20(arr, idx, target, path):
+    if target == 0:
+        return [path]
+
+    if idx >= len(arr) or target < 0:
+        return []
+
+    res = []
+    res += combiSum20(arr, idx + 1, target - arr[idx], path + [arr[idx]])
+    next_idx = idx + 1
+    while next_idx < len(arr) and arr[next_idx] == arr[idx]:
+        next_idx += 1
+    res += combiSum20(arr, next_idx, target, path)
+
+    return res
+
+k = combinationSum2([1,1,2,5,6,7,8,10], 8)
 print(k)
