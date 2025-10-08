@@ -21,7 +21,6 @@ def heightOfTree(root):
 
         return max(left, right) 
 
-
 def preOrder(tree, arr): 
     if tree is None: 
         return
@@ -45,7 +44,6 @@ def inOrder(tree, arr):
         inOrder(tree.left, arr) 
         arr.append(tree.data) 
         inOrder(tree.right, arr) 
-
 
 def traversalStart(tree): 
     arr = [] 
