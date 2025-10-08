@@ -18,7 +18,6 @@ def heightOfTree(root):
         right = 0 
         left = 1 + heightOfTree(root.left)
         right = 1 + heightOfTree(root.right) 
-
         return max(left, right) 
 
 def preOrder(tree, arr): 
