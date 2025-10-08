@@ -30,4 +30,3 @@ def levelOrder(tree):
 
 binaryTree = BinaryTree(3, BinaryTree(4, None, BinaryTree(5, None))) 
 print(levelOrder(binaryTree))
-    

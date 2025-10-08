@@ -18,6 +18,29 @@ def preOrderStart(tree):
     return arr 
 
 
-binaryTree = BinaryTree(3, BinaryTree(4, None, BinaryTree(5, None))) 
-print(preOrderStart(binaryTree))
+def preOrderIterative(tree): 
+    preOrderArray = [] 
+    preOrderStack = [] 
+    if tree is None: 
+        return preOrderArray 
+
+    preOrderStack.append(tree) 
+    
+    while preOrderStack: 
+        node = preOrderStack.pop() 
+        preOrderArray.append(node.data) 
+        if (node.right): 
+            preOrderStack.append(node.right) 
+        
+        if (node.left): 
+            preOrderStack.append(node.left) 
+    
+    return preOrderArray
+ 
+
+    
+
+
+binaryTree = BinaryTree(3, BinaryTree(4, BinaryTree(6, None), BinaryTree(5, None))) 
+print(preOrderIterative(binaryTree))
 
