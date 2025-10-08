@@ -12,7 +12,6 @@ def levelOrder(tree):
     travQueue.append(tree)
 
     while travQueue: 
-
         size = len(travQueue) 
         levels = [] 
 
