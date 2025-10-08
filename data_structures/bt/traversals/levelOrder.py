@@ -15,10 +15,10 @@ def levelOrder(tree):
         levels = [] 
         for _ in range(size): 
             node = travQueue.popleft() 
-            if node.right: 
-                travQueue.append(node.right) 
             if node.left: 
                 travQueue.append(node.left) 
+            if node.right: 
+                travQueue.append(node.right) 
             levels.append(node.data) 
         levelOrder = levelOrder + [levels] 
 
