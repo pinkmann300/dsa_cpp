@@ -17,7 +17,6 @@ def preOrderStart(tree):
     preOrder(tree, arr) 
     return arr 
 
-
 def preOrderIterative(tree): 
     preOrderArray = [] 
     preOrderStack = [] 
@@ -37,10 +36,6 @@ def preOrderIterative(tree):
     
     return preOrderArray
  
-
-    
-
-
 binaryTree = BinaryTree(3, BinaryTree(4, BinaryTree(6, None), BinaryTree(5, None))) 
 print(preOrderIterative(binaryTree))
 
