@@ -9,11 +9,15 @@ class BinaryTree:
 def levelOrder(tree): 
     travQueue = deque() 
     levelOrder = [] 
-    travQueue.append(tree) 
+    travQueue.append(tree)
+
     while travQueue: 
+
         size = len(travQueue) 
         levels = [] 
-        for _ in range(size): 
+
+        for _ in range(size):
+
             node = travQueue.popleft() 
             if node.left: 
                 travQueue.append(node.left) 
