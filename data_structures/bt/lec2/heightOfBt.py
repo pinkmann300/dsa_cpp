@@ -38,7 +38,6 @@ def levelOrder(tree):
             if (node.right):
                 q.append(node.right) 
 
-
     return levelOrderArray 
             
         
