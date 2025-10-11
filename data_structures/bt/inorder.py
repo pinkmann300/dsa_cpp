@@ -19,7 +19,6 @@ def inorder(tree):
     return results 
 
 def identicalTrees(tree1, tree2): 
-
     if tree1 and not tree2: 
         return False 
     
@@ -58,18 +57,14 @@ def symmetricTrees(tree):
 
     return symmetricHelper(tree1, tree2)
 
-
 print(inorder(binTree1))
 
 def zigZagTraversal(tree): 
     zigZag = []
     leftToRight = True 
-
     queue = deque() 
-
     if not tree: 
         return zigZag 
-
     while queue: 
         size = len(queue) 
         row = [0] * size  
