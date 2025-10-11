@@ -49,3 +49,6 @@ def traversalStart(tree):
     postOrder(tree, arr)
     return arr  
 
+
+
+
