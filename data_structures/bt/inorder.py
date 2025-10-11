@@ -17,4 +17,27 @@ def inorder(tree):
 
     return results 
 
+def identicalTrees(tree1, tree2): 
+
+    if tree1 and not tree2: 
+        return False 
+    
+    if tree2 and not tree1: 
+        return False 
+
+    if not tree1 and not tree2:
+        return True 
+    
+    if (tree1.data == tree2.data):
+        left1 = identicalTrees(tree1.left, tree2.left) 
+        right1 = identicalTrees(tree1.right, tree2.right) 
+        return left1 and right1
+    else:
+        return False 
+    
+    
+
+
+
 print(inorder(binTree1))
+
