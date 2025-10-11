@@ -35,9 +35,5 @@ def identicalTrees(tree1, tree2):
     else:
         return False 
     
-    
-
-
 
 print(inorder(binTree1))
-
