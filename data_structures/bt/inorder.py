@@ -145,11 +145,94 @@ def topViewOfTree(tree):
 
     return topView
 
+
+def bottomView(tree): 
+    nodes = {} 
+    queue = deque() 
+
+    bottomView = [] 
+
+    if not tree: 
+        return bottomView 
+    
+    queue.append((tree, 0)) 
+
+    while queue: 
+        node, x = queue.popleft() 
+
+        nodes[x] = node.data
+
+        if node.left: 
+            queue.append((node.left, (x - 1))) 
+        
+        if node.right: 
+            queue.append((node.right, (x + 1))) 
+
+    
+    for k in (sorted(nodes.keys())): 
+        bottomView.append(nodes[k]) 
+    
+    return bottomView
+
+
+def leftView(tree): 
+    nodes = {} 
+    leftView = [] 
+    traversalStack = []
+
+    if not tree: 
+        return leftView 
+    
+    traversalStack.append((tree, 0))     
+
+    while traversalStack:
+        node, y = traversalStack.pop() 
+        if (node.right): 
+            traversalStack.append((node.right, y + 1))
+        if (node.left): 
+            traversalStack.append((node.left, y + 1)) 
+
+        if y not in nodes: 
+            nodes[y] = node.data  
+
+    print(nodes)
+
+    for k in sorted(nodes.keys()): 
+        leftView.append(nodes[k]) 
+
+    return leftView
+
+
+def rightView(tree): 
+    nodes = {} 
+    rightView = [] 
+    traversalStack = [] 
+
+    if not tree: 
+        return rightView 
+    
+    traversalStack.append((tree, 0)) 
+
+    while traversalStack: 
+        node, y = traversalStack.pop() 
+        if node.left: 
+            traversalStack.append((node.left, y + 1)) 
+        
+        if node.right: 
+            traversalStack.append((node.right, y + 1)) 
+
+        if y not in nodes: 
+            nodes[y] = node.data 
+
+    for k in sorted(nodes.keys()): 
+        rightView.append(nodes[k]) 
+
+    return rightView
+        
+
+
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(2, BTree(4), BTree(3)))
 
-
-print(topViewOfTree(tree))
-
-
+print(rightView(tree))
