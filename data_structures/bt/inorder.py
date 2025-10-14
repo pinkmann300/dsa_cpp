@@ -1,5 +1,7 @@
 from binary_trees import BTree
 from binary_trees import binTree1
+from collections import deque 
+from collections import defaultdict
 
 from collections import deque 
 
@@ -54,10 +56,8 @@ def symmetricHelper(tree1, tree2):
 def symmetricTrees(tree): 
     tree1 = tree.left 
     tree2 = tree.right 
-
     return symmetricHelper(tree1, tree2)
 
-print(inorder(binTree1))
 
 def zigZagTraversal(tree): 
     zigZag = []
@@ -86,9 +86,70 @@ def zigZagTraversal(tree):
     return zigZag
 
 
+def verticalOrderTraversal(tree): 
+    nodes = {}
+    queue = deque() 
+
+    vertOrder = [] 
+    if not tree: 
+        return vertOrder
+
+    queue.append((tree, (0, 0))) 
+
+    while queue: 
+        node, (x, y) = queue.popleft() 
+        if x in nodes:
+            if y in nodes[x]:
+                nodes[x][y].append(node.data) 
+            else:
+                nodes[x][y] = [] 
+                nodes[x][y].append(node.data) 
+
+        else:
+            nodes[x] = {} 
+            nodes[x][y] = []
+            nodes[x][y].append(node.data)
+
+        if (node.left): 
+            queue.append((node.left, (x - 1, y + 1))) 
+
+        if (node.right): 
+            queue.append((node.right, (x + 1, y + 1))) 
+    return nodes
+
+
+def topViewOfTree(tree): 
+    nodes = {} 
+    queue = deque() 
+    topView = []
+
+    if not tree:
+        return topView 
+
+    queue.append((tree, 0)) 
+
+    while queue: 
+        node, x = queue.popleft()
+
+        if x not in nodes: 
+            nodes[x] = node.data 
+
+        if node.left: 
+            queue.append((node.left, (x - 1)))
+
+        if node.right:
+            queue.append((node.right, (x + 1))) 
+
+    for k in (sorted(nodes.keys())): 
+        topView.append(nodes[k])
+
+    return topView
+
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(2, BTree(4), BTree(3)))
 
 
-print(symmetricTrees(tree))
+print(topViewOfTree(tree))
+
+
