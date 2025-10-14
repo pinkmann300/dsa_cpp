@@ -230,7 +230,6 @@ def rightView(tree):
     return rightView
         
 
-
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(2, BTree(4), BTree(3)))
