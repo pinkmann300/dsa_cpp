@@ -252,10 +252,28 @@ def leftBoundary(tree):
     return leftBound
 
 
+def rightBoundary(tree): 
+    rightBound = []
+    if tree is None: 
+        return rightBound 
+    
+    current = tree 
+
+    while current: 
+        if not isLeaf(current): 
+            rightBound.append(current.data)
+
+        if current.right: 
+            current = current.right 
+        else: 
+            current = current.left 
+
+    return rightBound
+
         
 
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
-             BTree(2, BTree(4), BTree(3)))
+             BTree(3, BTree(4), BTree(3)))
 
-print(leftBoundary(tree))
+print(rightBoundary(tree))
