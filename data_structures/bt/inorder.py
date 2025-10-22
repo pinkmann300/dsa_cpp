@@ -228,10 +228,34 @@ def rightView(tree):
         rightView.append(nodes[k]) 
 
     return rightView
+
+
+def isLeaf(tree): 
+    return (not tree.left) and (not tree.right)
+
+def leftBoundary(tree): 
+    leftBound = [] 
+
+    if tree is None: 
+        return leftBound 
+    
+    current = tree 
+    while current: 
+        if not isLeaf(current):
+            leftBound.append(current.data) 
+
+        if current.left: 
+            current = current.left  
+        else: 
+            current = current.right 
+
+    return leftBound
+
+
         
 
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(2, BTree(4), BTree(3)))
 
-print(rightView(tree))
+print(leftBoundary(tree))
