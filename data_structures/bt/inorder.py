@@ -270,10 +270,24 @@ def rightBoundary(tree):
 
     return rightBound
 
-        
+
+def bottomOrderRec(tree, rec): 
+    if not tree: 
+        return
+    else: 
+        if isLeaf(tree): 
+            rec.append(tree.data) 
+        bottomOrderRec(tree.left, rec) 
+        bottomOrderRec(tree.right, rec)
+            
+
+def bottomOrder(tree): 
+    arr = [] 
+    bottomOrderRec(tree, arr); 
+    return arr
 
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(3, BTree(4), BTree(3)))
 
-print(rightBoundary(tree))
+print(bottomOrder(tree))
