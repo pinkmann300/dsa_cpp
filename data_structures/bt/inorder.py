@@ -298,22 +298,39 @@ def height(tree):
 def isBalanced(tree): 
     if not tree:
         return True 
-    
     left = height(tree.left) 
     right = height(tree.right) 
-
     if (abs(left - right) <= 1) and isBalanced(tree.left) and isBalanced(tree.right): 
         return True 
-    
     return False
+
+def isBalanced2(tree): 
+    return dfsHeight(tree) != -1 
+
+
+def dfsHeight(tree):
+    if not tree: 
+        return 0 
+    
+    left_height = dfsHeight(tree.left) 
+
+    if left_height == -1: 
+        return -1 
+    
+    right_height = dfsHeight(tree.right)
+
+    if right_height == -1: 
+        return -1 
+    
+    if abs(left_height - right_height) > 1: 
+        return -1 
+    
+    return max(left_height, right_height) + 1 
         
 
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(3, BTree(4), BTree(3)))
 
-
-def findRootNode(tree):
-    pass 
 
 print(bottomOrder(tree))
