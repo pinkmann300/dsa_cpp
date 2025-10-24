@@ -235,7 +235,7 @@ def isLeaf(tree):
 def leftBoundary(tree): 
     leftBound = [] 
 
-    if tree is None: 
+    if not tree:
         return leftBound 
     
     current = tree 
@@ -284,6 +284,29 @@ def bottomOrder(tree):
     arr = [] 
     bottomOrderRec(tree, arr); 
     return arr
+
+
+def height(tree): 
+    if not tree: 
+        return 0 
+    else: 
+        right = height(tree.right) 
+        left = height(tree.left) 
+        return max(right, left) + 1 
+    
+
+def isBalanced(tree): 
+    if not tree:
+        return True 
+    
+    left = height(tree.left) 
+    right = height(tree.right) 
+
+    if (abs(left - right) <= 1) and isBalanced(tree.left) and isBalanced(tree.right): 
+        return True 
+    
+    return False
+        
 
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
