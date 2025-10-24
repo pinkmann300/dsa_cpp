@@ -345,6 +345,11 @@ def diameterComp(tree, di):
     return 1 + max(lh, rh) 
 
 
+def maxPathSum(tree): 
+    pass 
+
+
+
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(3, BTree(4), BTree(3)))
