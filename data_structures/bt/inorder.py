@@ -326,11 +326,28 @@ def dfsHeight(tree):
         return -1 
     
     return max(left_height, right_height) + 1 
-        
+
+
+def diameter(tree): 
+    di = [0] 
+    diameterComp(tree, di)
+    return di[0]
+
+
+def diameterComp(tree, di): 
+    if not tree: 
+        return 0 
+    
+    lh = diameterComp(tree.left, di) 
+    rh = diameterComp(tree.right, di) 
+
+    di[0] = max(di[0], lh + rh) 
+    return 1 + max(lh, rh) 
+
 
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(3, BTree(4), BTree(3)))
 
 
-print(bottomOrder(tree))
+print(diameter(tree))
