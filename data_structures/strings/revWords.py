@@ -10,12 +10,9 @@ def reverseWords(s1):
             else: 
                 finalOutput = (" " + word) + finalOutput
                 word = ""
-
         else: 
             word += s1[i] 
-
     return finalOutput
-
 
 
 def reverseWords2(s1): 
@@ -51,9 +48,7 @@ def lcprefix(words):
 
 
 testString = "This is decent   "
-
 testString2 = ["flower", "flow", "flight"] 
-
 print(lcprefix(testString2))
 
 
