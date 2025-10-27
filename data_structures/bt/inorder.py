@@ -63,7 +63,7 @@ def zigZagTraversal(tree):
     leftToRight = True 
     queue = deque() 
     if not tree: 
-        return zigZag 
+        return zigZag  
     while queue: 
         size = len(queue) 
         row = [0] * size  
@@ -346,8 +346,19 @@ def diameterComp(tree, di):
 
 
 def maxPathSum(tree): 
-    pass 
+    maxPath = [0] 
+    maxPathComp(tree, maxPath) 
+    return maxPath[0] 
 
+def maxPathComp(tree, maxPath): 
+    if not tree: 
+        return 0 
+    
+    lh = max(0,maxPathComp(tree.left, maxPath))
+    rh = max(0,maxPathComp(tree.right, maxPath))
+
+    maxPath[0] = max(maxPath[0], lh + rh + tree.data)
+    pass 
 
 
 tree = BTree(1,
