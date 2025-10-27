@@ -34,4 +34,18 @@ def ceil(key, tree):
 
     return ceilValue 
 
-    
+
+def floor(key, tree): 
+    floorValue = -1 
+    while tree: 
+        if (tree.data == key): 
+            floorValue = tree.data 
+            return floorValue
+        else: 
+            if (tree.data > key): 
+                tree = tree.left 
+            else: 
+                floorValue = tree.data 
+                tree = tree.right 
+
+    return floorValue
