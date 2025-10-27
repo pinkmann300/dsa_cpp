@@ -27,9 +27,33 @@ def reverseWords2(s1):
             word += s1[index]
             index = index + 1 
 
-        finalOutput = " " + word + finalOutput
+        if index < len(s1) and s1[index - 1] != " ": 
+            finalOutput = " " + word + finalOutput
+        else: 
+            finalOutput = word + finalOutput
+
         index = index + 1
     return finalOutput 
 
-testString = "This is decent"
-print(reverseWords2(testString))
+def lcprefix(words): 
+    words_sorted = sorted(words) 
+    right = len(words_sorted) - 1 
+    left = 0 
+
+    commonPrefix = "" 
+
+    for i in range(0, len(words_sorted[0])): 
+        if (words_sorted[left][i] != words_sorted[right][i]): 
+            break 
+        commonPrefix += words_sorted[left][i]
+
+    return commonPrefix
+
+
+testString = "This is decent   "
+
+testString2 = ["flower", "flow", "flight"] 
+
+print(lcprefix(testString2))
+
+
