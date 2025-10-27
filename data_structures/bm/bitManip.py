@@ -36,6 +36,15 @@ def oddOccurence(arr):
         finalXor = finalXor ^ i 
     return (finalXor) 
 
+
+def numberOfSetBits(n): 
+    count = 0 
+    while n: 
+        n &= n - 1 
+        count += 1 
+    return count 
+
+
 def xorLR(l, r): 
     finalXor = l 
     for i in range(l, r + 1): 
