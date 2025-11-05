@@ -361,6 +361,22 @@ def maxPathComp(tree, maxPath):
     pass 
 
 
+
+def rootToNode(root,arr, target): 
+    if (not root): 
+        return False 
+    
+    if (root.val == target): 
+        return True
+
+    arr.append(root.val)
+
+    if (rootToNode(root.left, arr, target) or rootToNode(root.right, arr, target)): 
+        return True 
+    
+    arr.pop() 
+    return False 
+
 tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(3, BTree(4), BTree(3)))
