@@ -381,5 +381,17 @@ tree = BTree(1,
              BTree(2, BTree(3), BTree(4)),
              BTree(3, BTree(4), BTree(3)))
 
+def lowestCommonAncestor(root, x, y): 
+    if (not root) or (root == x) or (root == y): 
+        return root 
 
-print(diameter(tree))
+    left = lowestCommonAncestor(root.left, x, y)
+    right = lowestCommonAncestor(root.right, x, y) 
+
+    if not left: 
+        return right 
+    elif not right: 
+        return left 
+    else: 
+        return root 
+    
