@@ -40,5 +40,41 @@ def levelOrder(tree):
 
     return levelOrderArray 
             
-        
-print(levelOrder(binTree1))
+
+def maximumWidth(tree): 
+    if not tree: 
+        return 0  
+    
+    maxWidth = 0 
+
+    q = deque() 
+    q.append((tree,1)) 
+    while q: 
+        size = len(q) 
+        levels = [] 
+        for _ in range(size): 
+            node, parentIndex = q.popleft() 
+            
+            if node.left: 
+                q.append((node.left, 2 * parentIndex)) 
+            
+            if node.right: 
+                q.append((node.left, (2 * parentIndex) + 1))
+
+            levels.append(parentIndex) 
+            maxWidth = max (maxWidth,  max(levels) - min(levels) + 1)
+
+    return maxWidth
+
+
+root = BTree(1)
+root.left = BTree(3)
+root.right = BTree(2)
+root.left.left = BTree(5)
+root.left.right = BTree(3)
+root.right.right = BTree(9)
+
+    # Create object
+
+    # Print the result
+print("Maximum width:", maximumWidth(root))
