@@ -13,9 +13,6 @@ def heightOfBt(tree):
     right = 1 + heightOfBt(tree.right) 
     return max(left, right) 
 
-binTree1 = BTree(5, BTree(6, None, BTree(7, None)), BTree(6, BTree(4, BTree(5, None, None), None), None)) 
-print(heightOfBt(binTree1))
-
 def levelOrder(tree): 
     if not tree:
         return 0 
@@ -40,13 +37,10 @@ def levelOrder(tree):
 
     return levelOrderArray 
             
-
 def maximumWidth(tree): 
     if not tree: 
         return 0  
-    
     maxWidth = 0 
-
     q = deque() 
     q.append((tree,1)) 
     while q: 
@@ -66,6 +60,24 @@ def maximumWidth(tree):
 
     return maxWidth
 
+def insertIntoBTree(root, target): 
+    current = root
+    while True: 
+        if current.val > target: 
+            if current.left: 
+                current = current.left 
+            else: 
+                current.left = BTree(target)
+                break 
+
+        else: 
+            if current.right: 
+                current = current.right 
+            else: 
+                current.right = BTree(target) 
+                break
+    return root  
+
 
 root = BTree(1)
 root.left = BTree(3)
@@ -74,7 +86,8 @@ root.left.left = BTree(5)
 root.left.right = BTree(3)
 root.right.right = BTree(9)
 
-    # Create object
-
-    # Print the result
+# Create object
+# Print the result
 print("Maximum width:", maximumWidth(root))
+binTree1 = BTree(5, BTree(6, None, BTree(7, None)), BTree(6, BTree(4, BTree(5, None, None), None), None)) 
+print(heightOfBt(binTree1))
