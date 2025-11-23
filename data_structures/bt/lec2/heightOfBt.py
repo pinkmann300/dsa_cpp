@@ -91,3 +91,8 @@ root.right.right = BTree(9)
 print("Maximum width:", maximumWidth(root))
 binTree1 = BTree(5, BTree(6, None, BTree(7, None)), BTree(6, BTree(4, BTree(5, None, None), None), None)) 
 print(heightOfBt(binTree1))
+
+
+haystak = "a" 
+
+print(haystak[0:1]) 
