@@ -20,7 +20,7 @@ def reverseWords2(s1):
     index = 0 
     while index < len(s1): 
         word = "" 
-        while index < len(s1) and  s1[index] != " ":
+        while index < len(s1) and s1[index] != " ":
             word += s1[index]
             index = index + 1 
 
@@ -50,5 +50,8 @@ def lcprefix(words):
 testString = "This is decent   "
 testString2 = ["flower", "flow", "flight"] 
 print(lcprefix(testString2))
+
+
+
 
 
