@@ -50,8 +50,3 @@ def lcprefix(words):
 testString = "This is decent   "
 testString2 = ["flower", "flow", "flight"] 
 print(lcprefix(testString2))
-
-
-
-
-
