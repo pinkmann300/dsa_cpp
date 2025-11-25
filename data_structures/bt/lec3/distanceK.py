@@ -41,7 +41,6 @@ def atDistanceK(root, target, k):
 
 
     while queue:
-
         if level == k:
             break 
 
