@@ -27,6 +27,27 @@ def buildTree(preOrder, inOrder):
 
         return root 
 
-    build(0, len(preOrder) - 1, 0, len(inOrder) - 1) 
+    return build(0, len(preOrder) - 1, 0, len(inOrder) - 1) 
 
- 
+
+def buildTree(postOrder, inOrder): 
+    hashMap = hashMapBuild(inOrder)
+
+    def build(ps, pe, inSt, inEnd):
+        if ps > pe or inSt > inEnd: 
+            return None 
+        
+        root_val = postOrder[pe]
+        root = TreeNode(root_val) 
+
+        rootIndex = hashMap[root_val] 
+
+        leftCount = rootIndex - inSt
+
+        root.left = build(ps, ps + leftCount - 1, inSt, rootIndex - 1) 
+
+        root.right = build(ps + leftCount, pe - 1, rootIndex + 1, inEnd) 
+
+        return root 
+    
+    return build(0, len(postOrder) - 1, 0, len(inOrder) - 1)
