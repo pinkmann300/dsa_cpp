@@ -23,14 +23,14 @@ def buildTree(preOrder, inOrder):
         leftCount = rootIndex - inStart 
 
         root.left = build(preStart + 1, preStart + leftCount, inStart, rootIndex - 1) 
-        root.right = build(preStart + leftCount + 1, preEnd, inStart + 1, inEnd)
+        root.right = build(preStart + leftCount + 1, preEnd, rootIndex + 1, inEnd)
 
         return root 
 
     return build(0, len(preOrder) - 1, 0, len(inOrder) - 1) 
 
 
-def buildTree(postOrder, inOrder): 
+def buildTreePost(postOrder, inOrder): 
     hashMap = hashMapBuild(inOrder)
 
     def build(ps, pe, inSt, inEnd):
