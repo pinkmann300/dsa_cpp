@@ -62,7 +62,6 @@ Adjacency list uses a space complexity of 2 * |e| because each edge is repeated 
 undirected graph as all the edges are bidirectional in the same. 
 """
 
-
 """
 How to store a weighted graph? 
 """
