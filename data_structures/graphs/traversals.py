@@ -37,4 +37,9 @@ def bfsOnGraph(adjacencyList, startingNode):
 
     return bfsArray
         
+
+def dfsOnGraph(adjacenyList, startingNode): 
+    pass 
+ 
+
             
