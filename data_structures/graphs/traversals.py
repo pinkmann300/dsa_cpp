@@ -36,10 +36,43 @@ def bfsOnGraph(adjacencyList, startingNode):
                 visited_array[k] = 1 
 
     return bfsArray
-        
 
-def dfsOnGraph(adjacenyList, startingNode): 
-    pass 
+
+def dfsStart(adjacencyList): 
+    visited_arr = [0 for _ in range(len(adjacencyList))] 
+    resultArr = [] 
+    dfsOnGraph(0, adjacencyList, resultArr, visited_arr) 
+    return resultArr
+
+
+
+def dfsOnGraph(startingNode, adjacencyList, resultArr, visited): 
+    visited[startingNode] = 1 
+    resultArr.append(startingNode) 
+
+    for i in adjacencyList[startingNode]: 
+        if visited[i] == 0: 
+            dfsOnGraph(i, adjacencyList, resultArr, visited)
+
+    
+
+
+def main(): 
+    V = 5
+
+    # Adjacency list
+    adj = [[] for _ in range(V + 1)]
+    adj[0] = [1,2]
+    adj[1] = [0, 3]
+    adj[2] = [0, 4]
+    adj[3] = [1]
+    adj[4] = [2]
+
+    # Run DFS from node 0
+    newArr = dfsStart(adj)
+    print(newArr)
  
 
             
+
+main(); 
