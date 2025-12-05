@@ -44,16 +44,50 @@ def createAdjacenyMatrix(vertices, edges, edgeList):
  
 """
 Representing a graph in the form of an adjacency matrix is a little expensive as it takes a space complexity of 
-O(n^2). 
+O(n^2). The above is one way of representing a graph where the matrix indices denote the vertex and a value of 1
+represents a 
 """
+
+def createAdjacencyList(vertices, edges, edgeList):
+    adjList = [[] for _ in range(vertices + 1)] 
+    for i in range(0, edges): 
+        node1, node2 = edgeList[i] 
+        adjList[node1].append(node2)
+        adjList[node2].append(node1) 
+
+    return adjList 
+
+"""
+Adjacency list uses a space complexity of 2 * |e| because each edge is repeated twice in an 
+undirected graph as all the edges are bidirectional in the same. 
+"""
+
+
+"""
+How to store a weighted graph? 
+"""
+
+def createWeightedAdjacencyMatrix(vertices, edges, edgeList):
+    adjMatrix = [[0 for _ in range(vertices + 1)] for _ in range(vertices + 1)]
+    for i in range(0, edges): 
+        nodes, weight = edgeList[i] 
+        node1, node2 = nodes 
+        adjMatrix[node1][node2] = weight 
+        adjMatrix[node2][node1] = weight
+
+    return adjMatrix
+ 
 
 def main(): 
     numberOfVertices = 5 
     numberOfEdges = 6 
-    edgeList = [(1,2), (1,3), (2,4), (3,4), (3,5), (4,5)]
-    adjacencyMatrix = createAdjacenyMatrix(numberOfVertices, numberOfEdges, edgeList) 
-    print("ADJACENCY MATRIX : \n", adjacencyMatrix) 
+    edgeList = [((1,2), 9), ((1,3), 10), ((2,4), 8), ((3,4), 15), ((3,5), 19), ((4,5), 20)]
 
+    adjacencyMatrix = createWeightedAdjacencyMatrix(numberOfVertices, numberOfEdges, edgeList) 
+    print("ADJACENCY MATRIX: \n", adjacencyMatrix) 
+
+    # adjacencyList = createAdjacencyList(numberOfVertices, numberOfEdges, edgeList) 
+    # print("ADJACENCY LIST: \n", adjacencyList) 
 
 
 main() 
