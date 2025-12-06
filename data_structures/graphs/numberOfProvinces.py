@@ -1,7 +1,6 @@
 from collections import deque
 
 """
-
 Problem Statement: Given an undirected graph with V vertices. Two vertices u and v belong to a single province if 
 there is a path from u to v or v to u. Find the number of provinces. The graph is given as an n x n matrix adj where
 adj[i][j] = 1 if the ith city and the jth city are directly connected, and adj[i][j] = 0 otherwise.
@@ -16,10 +15,8 @@ and city 2 and city 3 also have a path between them. There is no path between an
 Input: adj= [ [1, 0, 1], [0, 1, 0], [1, 0, 1] ]
 Output: 2
 Explanation :  The graph clearly has 2 Provinces [1,3] and [2]. As city 1 and city 3 has a path between them they belong to a 
-single province. City 2 has no path to city 1 or city 3 hence it belongs to another province.
-            
+single province. City 2 has no path to city 1 or city 3 hence it belongs to another province.           
 """
-
 
 """
 Solution explanation:  
@@ -59,7 +56,6 @@ def numberOfProvinces(adjacencyMatrix):
             provinceCount += 1 
 
     return provinceCount
-
 
 
 def numberOfProvincesBFS(adjacencyMatrix): 
