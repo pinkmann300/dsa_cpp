@@ -51,12 +51,3 @@ def rottenOranges(adjacencyMatrix):
             time += 1 
 
     return time if rottenOranges == totalOranges else -1 
-
-    
-
-
-
-
-
-
-
