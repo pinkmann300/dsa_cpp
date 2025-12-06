@@ -1,3 +1,5 @@
+from collections import deque
+
 """
 
 Problem Statement: Given an undirected graph with V vertices. Two vertices u and v belong to a single province if 
@@ -58,3 +60,32 @@ def numberOfProvinces(adjacencyMatrix):
 
     return provinceCount
 
+
+
+def numberOfProvincesBFS(adjacencyMatrix): 
+    numberOfVertices = len(adjacencyMatrix)
+    adjacencyList = [[] for _ in range(len(adjacencyMatrix))] 
+
+    for i in range(numberOfVertices): 
+        for j in range(numberOfVertices):
+            if adjacencyMatrix[i][j] and i != j: 
+                adjacencyList[i].append(j) 
+                adjacencyList[j].append(i)
+    
+    visited_arr = [0 for _ in range(len(adjacencyList))]
+    components = 0 
+
+    for i in range(numberOfVertices): 
+        if visited_arr[i] == 0: 
+            components += 1 
+            queue = deque() 
+            queue.append(i) 
+            visited_arr[i] = 1 
+
+            while queue: 
+                node = queue.popleft() 
+                for k in adjacencyList[node]:
+                    queue.append(k) 
+                    visited_arr[k] = 1 
+                
+    return components
