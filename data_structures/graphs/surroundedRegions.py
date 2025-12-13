@@ -40,10 +40,10 @@ def surroundedRegions(ogMat):
     #Left and right boundary checks:
 
     for k in range(len(ogMat)): 
-        if ogMat[k][0] == 'X' and visitedMat[k][0] == 0: 
+        if ogMat[k][0] == 'O' and visitedMat[k][0] == 0: 
             dfs(ogMat, visitedMat, k, 0) 
 
-        if ogMat[k][len(ogMat[0]) - 1] == 'X' and visitedMat[k][len(ogMat[0]) - 1] == 0: 
+        if ogMat[k][len(ogMat[0]) - 1] == 'O' and visitedMat[k][len(ogMat[0]) - 1] == 0: 
             dfs(ogMat, visitedMat, k, len(ogMat[0]) - 1) 
 
 
