@@ -1,3 +1,5 @@
+from collections import deque
+
 def dfs(ogMat, visitedMat, row, col):
     visitedMat[row][col] = 1 
 
@@ -22,3 +24,4 @@ def numberOfIslands(ogMat):
                 count += 1 
     
     return count
+
