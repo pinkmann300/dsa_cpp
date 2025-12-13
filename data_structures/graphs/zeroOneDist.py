@@ -1,6 +1,5 @@
 from collections import deque 
 
-
 def zeroOneDist(ogMat):
     visitedMatrix = [[0 for _ in range(len(ogMat[0]))] for _ in range(len(ogMat))] 
     distanceMatrix = [[0 for _ in range(len(ogMat[0]))] for _ in range(len(ogMat))] 
