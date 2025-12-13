@@ -1,14 +1,12 @@
 """ 
 Problem statement: 
-Given a matrix mat of size N x M where every element is either ‘O’ or ‘X’. Replace all ‘O’ with ‘X’ that is surrounded by ‘X’. 
-An ‘O’ (or a set of ‘O’) is considered to be surrounded by ‘X’ if there are ‘X’ at locations just below, just above just left, and just right of it.
+Given a matrix mat of size N x M where every element is either 'O' or 'X'. Replace all 'O' with 'X' that is surrounded by 'X'. 
+An 'O' (or a set of 'O') is considered to be surrounded by 'X' if there are 'X' at locations just below, just above just left, and just right of it.
 
 Observation: 
 The most important observation we can make here is that the presence of an 'O' on the boundary of the matrix would mean that any 'O' which will 
 form a connected component with other 'O's nearby. So, we will run a DFS algorithm from the boundaries of the matrix.  
-
 """
-
 
 def dfs(ogMat, visitMat, row, col):
     visitMat[row][col] = 1 
@@ -51,5 +49,3 @@ def surroundedRegions(ogMat):
         for col in range(len(ogMat[0])): 
             if visitedMat[row][col] == 0 and ogMat[row][col] == 0: 
                 ogMat[row][col] = 'X' 
-
-    
