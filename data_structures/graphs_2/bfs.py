@@ -21,7 +21,6 @@ def bfs(adjacencyList, V):
 
     return bfs_list       
 
-
 def rottenOranges(matrix): 
     totalOranges = 0 
     rottenOranges = deque()
@@ -88,7 +87,3 @@ def zeroOneDist(ogMat):
 
 
     return distanceMatrix 
-
-
-
-
