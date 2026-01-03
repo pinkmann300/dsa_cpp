@@ -61,16 +61,34 @@ def rottenOranges(matrix):
 
     return minutes if rottenCount == totalOranges else -1 
     
+def zeroOneDist(ogMat): 
+    visitedMatrix = [[0 for _ in range(len(ogMat[0]))] for _ in range(len(ogMat))] 
+    distanceMatrix = [[0 for _ in range(len(ogMat[0]))] for _ in range(len(ogMat))] 
+
+    travQueue = deque()
+    directionVectors = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+    for i in range(len(ogMat)): 
+        for j in range(len(ogMat[0])):
+            if ogMat[i][j] == 1: 
+                distanceMatrix[i][j] = 0 
+                visitedMatrix[i][j] = 1 
+                travQueue.append(i, j, 0) 
+
+    while travQueue:
+        row, col, steps = travQueue.popleft()
+        distanceMatrix[row][col] = steps
+        for x, y in directionVectors: 
+            nx = row + x 
+            ny = col + y 
+
+            if nx >= 0 and nx < len(ogMat) and ny >= 0 and nx < len(ogMat[0]) and visitedMatrix[nx][ny] == 0: 
+                visitedMatrix[nx][ny] = 1 
+                travQueue.append(nx, ny, steps + 1) 
+
+
+    return distanceMatrix 
 
 
 
 
-
-
-
-
-
-    
-    
-
-            
