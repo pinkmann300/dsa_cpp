@@ -7,7 +7,5 @@ def maxSumPath(tree):
     else: 
         left = tree.data + maxSumPath(tree.left) 
         right = tree.data + maxSumPath(tree.right) 
-        pass 
-
     
         return 
