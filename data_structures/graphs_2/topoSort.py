@@ -15,7 +15,6 @@ def topoSort(adjList):
             dfs(adjList, visitedArray, stack, i)
     return stack[::-1]
 
-
 def kahnsAlgorithm(adjList): 
     topoSortList = [] 
     queue = deque() 
@@ -38,7 +37,6 @@ def kahnsAlgorithm(adjList):
             if indegreeArray[k] == 0: 
                 queue.append(k) 
     return topoSortList
-
 
 def cycleDetection(adjList): 
     topoList = kahnsAlgorithm(adjList) 

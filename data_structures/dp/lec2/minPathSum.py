@@ -1,6 +1,6 @@
 def minPathRec(grid, row, col, sum):
     if (row == 0 and col == 0):
-        return sum + grid[row][col]
+        return sum + grid[0][0]
     if row < 0 or col < 0: 
         return float('inf') 
     else: 
