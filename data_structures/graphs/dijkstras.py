@@ -1,3 +1,6 @@
+from collections import deque
+
+
 """ 
 The code below describes the Dijkstra's algorithm for finding the shortest distance 
 from a source node to any other node in the graph given. Dijkstra's algorithm is very 
@@ -36,3 +39,43 @@ def dijkstras(adjList, sourceNode):
 
     return distanceArray
 
+"""
+Why do we use a priority queue instead of a queue? 
+
+Since, we use a min-heap, we will only work initially with the shortest routes 
+to a particular node and any other paths can be disconsidered going forward because we 
+try and work with a slightly greedy approach in some sense. You will end up exploring 
+too many paths unnecessarily. 
+
+
+Why is the time complexity E log V  (E is the total number of edges and V is the number of 
+vertices) ?
+
+The while loop in a priority queue would run for a time complexity of log V. 
+
+
+"""
+
+def networkDelayTime( times, n, k):
+        adjacencyList = [[] for _ in range(n + 1)] 
+        for [start, target, weight] in times: 
+            adjacencyList[start].append((target, weight)) 
+
+        timeArray = [float('inf') for _ in range(n + 1)]
+        travque = deque() 
+
+        travque.append((k, 0))
+        timeArray[k] = 0 
+
+        while travque: 
+            point, time = travque.popleft()
+
+            for nextPoint, travelTime in adjacencyList[point]:
+                newTime = time + travelTime 
+
+                if newTime < timeArray[nextPoint]:
+                    timeArray[nextPoint] = newTime 
+                    travque.append((nextPoint, newTime)) 
+
+        
+        return -1 if max(timeArray[1:]) == float('inf') else max(timeArray[1:]) 
