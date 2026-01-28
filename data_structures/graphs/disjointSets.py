@@ -7,6 +7,9 @@ class DisjointSet:
         pu = self.findUltimateParent(u) 
         pv = self.findUltimateParent(v) 
 
+        if pu == pv: 
+            return
+
         if self.rank[pu] == self.rank[pv]: 
             self.rank[pu] += 1
             self.parent[pv] = pu 
