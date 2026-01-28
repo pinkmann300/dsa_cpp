@@ -78,7 +78,6 @@ def insertIntoBTree(root, target):
                 break
     return root  
 
-
 root = BTree(1)
 root.left = BTree(3)
 root.right = BTree(2)
