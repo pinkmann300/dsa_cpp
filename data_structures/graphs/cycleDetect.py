@@ -6,7 +6,7 @@ def cycleDetection(adjList, srcNode, visited):
     
     queue = deque() 
     queue.append((srcNode, -1)) 
-    visited[1] = True 
+    visited[srcNode] = True 
 
     while queue: 
         node, parentNode = queue.popleft() 
