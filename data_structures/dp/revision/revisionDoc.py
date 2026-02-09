@@ -127,13 +127,62 @@ def uniquePathsMemoized(m, n):
     return dp[m - 1][n - 1] 
 
 
-
-
-
-
-
+def recSumTarget(arr, index, target): 
+    if index < 0: 
+        return False 
     
+    if target == 0: 
+        return True 
+    
+    if index == 0 and target == arr[index]: 
+        return True 
+    
+    taken = False 
+
+    if arr[index] <= target: 
+        taken = recSumTarget(arr, index - 1, target - arr[index]) 
+    notTaken = recSumTarget(arr, index - 1, target) 
+
+    return taken or notTaken 
 
 
+def tabulationSumTarget(arr, target): 
+    dp = [[False for _ in range(target + 1)] for _ in range(len(arr))] 
+    for i in range(len(arr)):
+        dp[i][0] = True 
 
+    dp[0][arr[0]] = True 
 
+    for i in range(1, len(arr)): 
+        for target1 in range(1, target + 1): 
+            notTaken = dp[i - 1][target1] 
+
+            taken = False 
+
+            if arr[i] <= target1: 
+                taken = dp[i - 1][target1 - arr[i]] 
+            dp[i][target1] = notTaken or taken  
+
+    return dp[len(arr) - 1][target]
+
+def spaceOptimized(arr, target): 
+    prev = [False for _ in range(target + 1)] 
+    prev[0] = True 
+
+    prev[arr[0]] = True 
+
+    for i in range(1, len(arr)): 
+        current = [False for _ in range(target + 1)] 
+        current[0] = True 
+
+        for target1 in range(1, target + 1): 
+            notTaken = prev[target1] 
+            taken = False 
+
+            if arr[i] <= target1: 
+                taken = prev[target1 - arr[i]] 
+            current[target1] = notTaken or taken 
+
+        prev = current[:] 
+
+    return prev[target] 
