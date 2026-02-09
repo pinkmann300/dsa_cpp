@@ -106,7 +106,7 @@ def uniquePaths(m, n, row, col):
 
     return up + left 
 
-def uniquePathsMemoized(m, n, row, col): 
+def uniquePathsMemoized(m, n): 
     dp = [[0 for _ in range(n)] for _ in range(n)] 
 
     dp[0][0] = 1 
@@ -125,6 +125,8 @@ def uniquePathsMemoized(m, n, row, col):
             dp[i][j] = up + left 
 
     return dp[m - 1][n - 1] 
+
+
 
 
 
