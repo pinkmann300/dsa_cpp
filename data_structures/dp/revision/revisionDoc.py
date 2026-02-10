@@ -215,3 +215,27 @@ def recursiveCountSubsetK(arr, ind, target):
         notTaken = recursiveCountSubsetK(arr, ind - 1, target) 
 
         return taken + notTaken 
+    
+
+def tabulationApproach(arr, target):
+    dp = [[0 for _ in range(target + 1)] for _ in range(len(arr))] 
+    for i in range(len(arr)): 
+        dp[i][0] = 1 
+
+    dp[0][arr[0]] = 1 
+
+    for ind in range(1, len(arr)): 
+        for targets in range(1, target + 1): 
+            taken = 0 
+
+            notTaken = dp[ind - 1][targets]  
+            if arr[ind] <= targets: 
+                taken = dp[ind - 1][targets - arr[ind]] 
+            
+            dp[ind][targets] = taken + notTaken 
+
+    return dp[len(arr) - 1][target] 
+
+#Handle the zero case in the edge cases.
+
+
