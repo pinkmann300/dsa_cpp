@@ -186,3 +186,32 @@ def spaceOptimized(arr, target):
         prev = current[:] 
 
     return prev[target] 
+
+
+""" 
+Problem statement: 
+Count the number of subsets with a sum of K. 
+"""
+
+"""
+Recursive solution: 
+"""
+
+def recursiveCountSubsetK(arr, ind, target): 
+    if target == 0: 
+        return 1 
+    
+    if ind == 0: 
+        if target == arr[ind]: 
+            return 1 
+        else: 
+            return 0 
+    
+    else: 
+
+        taken = 0 
+        if arr[ind] <= target: 
+            taken = recursiveCountSubsetK(arr, ind - 1, target - arr[ind]) 
+        notTaken = recursiveCountSubsetK(arr, ind - 1, target) 
+
+        return taken + notTaken 
