@@ -119,3 +119,23 @@ def floodFill(grid, sourceRow, sourceCol, newColor):
                 travQueue.append((nx, ny)) 
 
     return grid     
+
+
+def detectCycle(adjacencyList): 
+    travQueue = deque() 
+    visitedArray = [0 for _ in range(len(adjacencyList))] 
+
+
+    for i in range(len(adjacencyList)): 
+        travQueue.append((i, None))  
+        while travQueue: 
+            node, parent = travQueue.popleft() 
+            visitedArray[node] = 1 
+
+            for adjNodes in adjacencyList[node]: 
+                if visitedArray[adjNodes] == 0: 
+                    travQueue.append((adjNodes, node)) 
+                elif (adjNodes != parent): 
+                    return True
+                
+    return False  
