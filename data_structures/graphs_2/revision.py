@@ -11,5 +11,22 @@ def createAdjacenyList(numberOfVertices, edges):
 
     return adjacencyList 
 
-    
-    
+
+def dfsStart(adjacencyList): 
+    visitedArray = [0 for _ in range(len(adjacencyList))] 
+    resultantArray = [] 
+
+    for i in range(len(adjacencyList)): 
+        if visitedArray[i] != 1: 
+            dfs(adjacencyList, i, visitedArray, resultantArray) 
+
+    return resultantArray
+
+
+def dfs(adjacencyList, srcNode, visitedArray, resultant): 
+    visitedArray[srcNode] = 1 
+    resultant.append(srcNode)
+
+    for adjNodes in adjacencyList[srcNode]: 
+        if visitedArray[adjNodes] != 1: 
+            dfs(adjacencyList, adjNodes, visitedArray, resultant)
