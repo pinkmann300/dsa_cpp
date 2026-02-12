@@ -66,9 +66,7 @@ def numberOfProvinces(connectionMatrix):
     return count 
 
 def rottenOranges(orangesGrid):
-     
     directionVectors = [(0,1 ), (0, -1), (-1, 0), (1, 0)] 
-
     queue = deque()
     totalOranges = 0 
     rottenOranges = 0 
@@ -99,7 +97,26 @@ def rottenOranges(orangesGrid):
     return time if rottenOranges == totalOranges else -1 
 
 
+def floodFill(grid, sourceRow, sourceCol, newColor): 
+    originalColor = grid[sourceRow][sourceCol] 
+    if grid[sourceRow][sourceCol] == newColor: 
+        return 
+    
+    travQueue = deque()
+    travQueue.append((sourceRow, sourceCol)) 
 
+    directionVectors = [(0,1), (1, 0), (-1, 0), (0, -1)] 
+    
+    while travQueue:
+        x, y = travQueue.popleft() 
+        grid[x][y] = newColor 
 
+        for dx, dy in directionVectors: 
+            nx = dx + x 
+            ny = dy + y 
 
+            if nx >= 0 and nx < len(grid) and ny >= 0 and ny < len(grid[0]) and grid[nx][ny] == originalColor: 
+                travQueue.append((nx, ny)) 
+
+    return grid 
     
