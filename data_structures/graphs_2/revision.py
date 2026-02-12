@@ -65,6 +65,45 @@ def numberOfProvinces(connectionMatrix):
 
     return count 
 
+def rottenOranges(orangesGrid):
+     
+    directionVectors = [(0,1 ), (0, -1), (-1, 0), (1, 0)] 
 
-        
+    queue = deque()
+    totalOranges = 0 
+    rottenOranges = 0 
+    time = 0 
 
+    for i in range(len(orangesGrid)): 
+        for j in range(len(orangesGrid[0])): 
+            if orangesGrid[i][j] != 0:
+                totalOranges += 1 
+                if orangesGrid[i][j] == 2: 
+                    queue.append((i, j)) 
+
+    while queue:
+        rottenOranges += len(queue)  
+        for k in range(len(queue)):
+            x, y = queue.popleft() 
+
+            for dx, dy in directionVectors: 
+                nx = dx + x 
+                ny = dy + y 
+
+                if nx >= 0 and nx < len(orangesGrid) and ny >= 0 and ny < len(orangesGrid[0]) and orangesGrid[nx][ny] == 1: 
+                    orangesGrid[nx][ny] = 2 
+                    queue.append((nx, ny)) 
+        if queue: 
+            time += 1 
+
+    return time if rottenOranges == totalOranges else -1 
+
+
+
+            
+
+
+
+
+
+    
