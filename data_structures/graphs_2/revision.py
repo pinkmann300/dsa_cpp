@@ -139,3 +139,7 @@ def detectCycle(adjacencyList):
                     return True
                 
     return False  
+
+
+def surroundedRegions(grid): 
+    
