@@ -163,6 +163,4 @@ def topoLogicalSort(adjacencyList):
             indegree[m] -= 1 
             if indegree[m] == 0:
                 queue.append(m) 
-
-    
     return topoSort
