@@ -139,3 +139,30 @@ def detectCycle(adjacencyList):
                     return True
                 
     return False      
+
+
+def topoLogicalSort(adjacencyList): 
+    indegree = [0] * len(adjacencyList) 
+    topoSort = []
+
+    for i in range(len(adjacencyList)): 
+        for k in adjacencyList[i]: 
+            indegree[k] += 1 
+
+    queue = deque() 
+
+    for k in range(len(indegree)): 
+        if indegree[k] == 0: 
+            queue.append(k) 
+
+    while queue: 
+        node = k.popleft() 
+        topoSort.append(node) 
+
+        for m in adjacencyList[node]:
+            indegree[m] -= 1 
+            if indegree[m] == 0:
+                queue.append(m) 
+
+    
+    return topoSort
