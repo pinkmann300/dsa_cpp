@@ -138,8 +138,4 @@ def detectCycle(adjacencyList):
                 elif (adjNodes != parent): 
                     return True
                 
-    return False  
-
-
-def surroundedRegions(grid): 
-    
+    return False      
