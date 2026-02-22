@@ -40,9 +40,22 @@ def jumpGame(arr):
             return True 
 
     return False 
- 
 
-nums = [3,2,1,0,4] 
-print(jumpGame(nums))
+
+def jobSchedulingAlgorithm(arr): 
+    arr.sort() 
+    waitingTime = [0] * len(arr) 
+    totalTime = arr[0] 
+    waitingTime[0] = 0 
+
+    for i in range(1, len(arr)): 
+        waitingTime[i] = totalTime 
+        totalTime += arr[i] 
+
+    return (sum(waitingTime) / len(waitingTime)) 
+
+
+nums = [4,3,7,1,2] 
+print(jobSchedulingAlgorithm(nums)) 
 
 
