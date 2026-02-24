@@ -37,6 +37,15 @@ def tabulatedSolution(target, arr):
 
     return dp[len(arr) - 1][target] 
 
+def partitionSubsetSum(arr):
+    totalSum = sum(arr) 
+    if totalSum % 2 == 1: 
+        return False 
+    else: 
+        return tabulatedSolution(totalSum // 2, arr) 
+
+
+
 newArr = [1,2,3,4] 
 target = 15 
 
