@@ -46,7 +46,7 @@ def jobSchedulingAlgorithm(arr):
     arr.sort() 
     waitingTime = [0] * len(arr) 
     totalTime = arr[0] 
-    waitingTime[0] = 0 
+    waitingTime[0] = 0 2
 
     for i in range(1, len(arr)): 
         waitingTime[i] = totalTime 
