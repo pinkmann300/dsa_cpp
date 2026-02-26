@@ -43,8 +43,28 @@ def partitionSubsetSum(arr):
         return False 
     else: 
         return tabulatedSolution(totalSum // 2, arr) 
+    
+
+def recursiveCountSubsetsWithSumK(index, arr, target): 
+    if target == 0:
+        return 1 
+    
+    if index == 0: 
+        if target == arr[index]: 
+            return 1 
+        else: 
+            return 0 
+        
+    take = 0 
+    if arr[index] <= target: 
+        take = recursiveCountSubsetsWithSumK(index - 1, arr, target - arr[index]) 
+    notTaken = recursiveCountSubsetsWithSumK(index - 1, arr, target) 
+
+    return take + notTaken
 
 
+def countSubsetsWithSumK(arr, target):
+    pass
 
 newArr = [1,2,3,4] 
 target = 15 
