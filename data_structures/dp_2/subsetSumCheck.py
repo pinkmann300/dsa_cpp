@@ -64,7 +64,24 @@ def recursiveCountSubsetsWithSumK(index, arr, target):
 
 
 def countSubsetsWithSumK(arr, target):
-    pass
+    dp = [[0 for _ in range(target + 1)] for _ in range(len(arr))] 
+    
+    for i in range(len(arr)): 
+        dp[i][0] = 1 
+    
+    if arr[0] <= target: 
+        dp[0][arr[0]] = 1 
+
+    for i in range(1, len(arr)): 
+        for j in range(1, target + 1): 
+            taken = 0 
+
+            notTaken = dp[i - 1][j] 
+            if arr[i] <= j: 
+                taken = dp[i - 1][j - arr[i]] 
+            dp[i][j] = taken + notTaken
+
+    return dp[len(arr) - 1][target] 
 
 newArr = [1,2,3,4] 
 target = 15 
