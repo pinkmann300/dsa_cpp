@@ -27,8 +27,21 @@ def minCoinsTabulated(arr, target):
                 taken = 1 + dp[row][col - arr[row]] 
             dp[row][col] = min(taken, notTaken) 
     
-    return dp[len(arr) - 1][target] 
+    return dp[len(arr) - 1][target]
 
+def numberOfWaysToCoin(index, target, arr): 
+    if index == 0:
+        if target % arr[index] == 0: 
+            return 1
+        else: 
+            return 0 
+        
+    take = 0 
+    notTake = numberOfWaysToCoin(index - 1, target, arr) 
+    if arr[index] <= target: 
+        take = numberOfWaysToCoin(index, target - arr[index], arr)
+
+    return notTake + take 
 
 
 
