@@ -43,5 +43,23 @@ def numberOfWaysToCoin(index, target, arr):
 
     return notTake + take 
 
+def numberOfWaysToCoinTab(arr, target): 
+    dp = [[0 for _ in range(target + 1)] for _ in range(len(arr))] 
+    
+    for i in range(target + 1): 
+        if i % arr[0] == 0: 
+            dp[0][i] = 1 
+    
+    for i in range(1, len(arr)): 
+        for targ in range(target + 1): 
+            taken = 0 
+            notTaken = dp[i - 1][targ] 
+            if arr[i] <= targ: 
+                taken = dp[i][targ - arr[i]] 
+
+            dp[i][targ] = taken + notTaken
+
+    return dp[len(arr) - 1][target] 
+
 
 
