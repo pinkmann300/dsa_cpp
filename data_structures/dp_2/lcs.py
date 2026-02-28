@@ -30,4 +30,4 @@ def longestCommonSubsequenceTabulated(s1, s2):
 
                 dp[index1][index2] = max(ind1move, ind2move) 
     
-    return dp[len(s1)][len(s2)] 
+    return dp[len(s1)][len(s2)]
