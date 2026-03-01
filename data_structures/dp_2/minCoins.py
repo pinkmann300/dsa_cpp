@@ -60,6 +60,3 @@ def numberOfWaysToCoinTab(arr, target):
             dp[i][targ] = taken + notTaken
 
     return dp[len(arr) - 1][target] 
-
-
-
