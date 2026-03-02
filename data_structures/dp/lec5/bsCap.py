@@ -12,7 +12,6 @@ def bsCapRec(arr, ind, cap, buy):
 
     return max(op1, op2) 
 
-
 def bsCapRecMemo(arr, ind, cap, buy, dp): 
     if (ind == len(arr) or cap == 0): 
         return 0 
@@ -30,7 +29,6 @@ def bsCapRecMemo(arr, ind, cap, buy, dp):
 
     dp[ind][buy][cap] = max(op1, op2)   
     return dp[ind][buy][cap] 
-
 
 def bsCapMemStart(arr): 
     dp = [[[-1 for _ in range(3)] for _ in range(2)] for _ in range(len(arr))] 
@@ -67,9 +65,7 @@ def bsCapTab(arr, cap):
 
                 dp[i][j][k] = max(op1, op2) 
     return dp[0][0][2]
-
  
-
 prices = [3, 3, 5, 0, 0, 3, 1, 4]
 max_profit = bsCapTab(prices, 2)  
 print(max_profit)
