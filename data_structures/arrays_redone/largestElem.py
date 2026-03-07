@@ -50,6 +50,18 @@ def missingNumber(nums1):
     expectedSum = (n1 * (n1 + 1)) // 2 
     return expectedSum - totalSum 
 
+def maximumConsecutiveOnes(nums1): 
+    conOnes = 0 
+    maxOnes = 0 
+
+    for i in nums1: 
+        if i == 1: 
+            conOnes += 1 
+            maxOnes = max(maxOnes, conOnes) 
+        else: 
+            conOnes = 0 
+
+    return maxOnes
 
 
 arr1 = [1,2,3,4,5,7]  
