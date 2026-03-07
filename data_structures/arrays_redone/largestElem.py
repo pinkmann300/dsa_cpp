@@ -18,3 +18,10 @@ def secondLargestElement(arr):
             secondLargestElem = arr[i] 
 
     return secondLargestElem 
+
+def linearSearch(k, nums): 
+    for i in range(len(nums)):  
+        if nums[i] == k:
+            return i 
+        
+    return -1  
