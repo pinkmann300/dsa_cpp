@@ -44,8 +44,13 @@ def unionOfTwoSortedArrays(nums1, nums2):
 
     return unionArray
 
+def missingNumber(nums1): 
+    n1 = len(nums1) + 1
+    totalSum = sum(nums1) 
+    expectedSum = (n1 * (n1 + 1)) // 2 
+    return expectedSum - totalSum 
 
 
 
-arr1 = [1,2,3,4,5]  
-arr2 = [2,3,4,4,5]
+arr1 = [1,2,3,4,5,7]  
+print(missingNumber(arr1)); 
