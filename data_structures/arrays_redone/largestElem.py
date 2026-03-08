@@ -53,15 +53,27 @@ def missingNumber(nums1):
 def maximumConsecutiveOnes(nums1): 
     conOnes = 0 
     maxOnes = 0 
-
     for i in nums1: 
         if i == 1: 
             conOnes += 1 
             maxOnes = max(maxOnes, conOnes) 
         else: 
             conOnes = 0 
-
     return maxOnes
+
+def majorityElement(nums1): 
+    count = 0 
+    elem = 0 
+
+    for k in nums1: 
+        if count == 0: 
+            count += 1 
+            elem = k 
+
+        elif k != elem: 
+            count -= 1 
+
+    return elem
 
 
 arr1 = [1,2,3,4,5,7]  
