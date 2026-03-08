@@ -75,6 +75,5 @@ def majorityElement(nums1):
 
     return elem
 
-
 arr1 = [1,2,3,4,5,7]  
 print(missingNumber(arr1)); 
