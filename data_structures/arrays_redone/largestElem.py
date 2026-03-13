@@ -1,3 +1,14 @@
+class Car: 
+    def __init__(self, carName, carId): 
+        self.__carName = carName  
+        self.__carId = carId
+
+
+object1 = Car("Sandeep", "1") 
+print(type(object1)) 
+
+print(type(20))
+
 def largestElement(arr): 
     maxVal = float('-inf') 
     for i in arr: 
@@ -75,5 +86,19 @@ def majorityElement(nums1):
 
     return elem
 
-arr1 = [1,2,3,4,5,7]  
-print(missingNumber(arr1)); 
+def rotateBy90(matrix): 
+    newMatrix = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))] 
+    for row in range(len(matrix)): 
+        for col in range(len(matrix)): 
+            newMatrix[col][len(matrix) - row - 1] = matrix[row][col] 
+
+    return newMatrix
+
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print(rotateBy90(matrix))
