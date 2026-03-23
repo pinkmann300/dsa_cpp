@@ -102,3 +102,48 @@ matrix = [
 ]
 
 print(rotateBy90(matrix))
+
+def longestSubarrayMaximum(nums, k): 
+    prefixMap = {} 
+    prefixSum = 0
+    maxLen = 0 
+
+    for i in range(len(nums)): 
+        prefixSum += nums[i] 
+
+        if prefixSum == k:
+            maxLen = max(maxLen, i + 1) 
+        
+      
+            if prefixSum not in prefixMap: 
+                prefixMap[prefixSum] = i  
+
+            remainder = prefixSum - k 
+            if remainder in prefixMap: 
+                maxLen = max(maxLen, (i - prefixMap[remainder]) + 1)
+
+    return maxLen
+
+
+def longestSubArrayMaximum(nums, k): 
+    left = 0 
+    right = 0 
+    currentSum = nums[0]
+
+    maxLen = 0 
+    n = len(nums) 
+
+    while right < n:
+        while left <= right and currentSum > k: 
+            currentSum -= nums[left]
+            left += 1 
+
+        if sum == k: 
+            maxLen = max(maxLen, right - left + 1)
+
+        right += 1 
+
+        if right < n: 
+            currentSum += nums[right] 
+
+    return maxLen
