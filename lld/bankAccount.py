@@ -34,3 +34,42 @@ class BankAccount:
             print("Insufficient Funds") 
             return False 
         
+
+
+"""
+Design Library Book Class
+Problem: Create a Book class for a library management system.
+
+Requirements:
+
+Fields: title, author, isbn, isAvailable
+Constructor that initializes all fields (book starts as available)
+borrowBook(): marks book as unavailable if currently available, returns success/failure
+returnBook(): marks book as available
+displayInfo(): prints book details including availability status
+
+"""
+
+class Book: 
+    def __init__(self, title, author, isbn): 
+        self.__title = title 
+        self.__author = author 
+        self.__isbn = isbn 
+        self.__isAvailable = True 
+
+    def borrowBook(self): 
+        if self.__isAvailable: 
+            self.__isAvailable = False 
+            return True 
+        else: 
+            return False
+        
+    def returnBook(self): 
+        self.__isAvailable = True  
+
+    
+    def displayInfor(self): 
+        print("Title : ", self.__title) 
+        print("Author: ", self.__author) 
+        print("ISBN: ", self.__isbn) 
+        print("Availability: ", self.__isAvailable)
