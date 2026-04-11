@@ -8,7 +8,7 @@ Fields: accountNumber, ownerName, balance
 Constructor that initializes the account with owner name and account number (balance starts at 0)
 deposit(amount): adds money to balance (only positive amounts)
 withdraw(amount): removes money if sufficient balance exists, returns success/failure
-getBalance(): returns current balanc
+getBalance(): returns current balance
 """
 
 class BankAccount: 
@@ -34,8 +34,7 @@ class BankAccount:
             print("Insufficient Funds") 
             return False 
         
-
-
+        
 """
 Design Library Book Class
 Problem: Create a Book class for a library management system.

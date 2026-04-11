@@ -3,8 +3,8 @@ class Car:
         self.__carName = carName  
         self.__carId = carId
 
-
 object1 = Car("Sandeep", "1") 
+
 print(type(object1)) 
 
 print(type(20))
@@ -83,7 +83,6 @@ def majorityElement(nums1):
 
         elif k != elem: 
             count -= 1 
-
     return elem
 
 def rotateBy90(matrix): 
@@ -94,14 +93,11 @@ def rotateBy90(matrix):
 
     return newMatrix
 
-
 matrix = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]
-
-print(rotateBy90(matrix))
 
 def longestSubarrayMaximum(nums, k): 
     prefixMap = {} 
@@ -123,7 +119,6 @@ def longestSubarrayMaximum(nums, k):
                 maxLen = max(maxLen, (i - prefixMap[remainder]) + 1)
 
     return maxLen
-
 
 def longestSubArrayMaximum(nums, k): 
     left = 0 

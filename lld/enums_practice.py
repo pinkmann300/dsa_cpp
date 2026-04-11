@@ -5,7 +5,8 @@ class TrafficLight(Enum):
     YELLOW = 5
     GREEN = 25
 
-    def next(self)
+    def next(self): 
+        pass 
 
 
 
