@@ -31,4 +31,40 @@ def lrcr(stringVal, k):
                 longestSubStringLength = max(longestSubStringLength, j - i + 1) 
             else: 
                 break 
+
+#Complexity analysis : O(n^2) 
+
+def lrcrOptimized(stringVal, k): 
+    l = 0 
+    r = 0
+    maxFrequency = 0 
+    maxLength = 0 
+    hashMap = {} 
+
+    stringLength = len(stringVal) 
+
+    while r < stringLength: 
+        if stringVal[r] not in hashMap: 
+            hashMap[stringVal[r]] = 1 
+        else: 
+            hashMap[stringVal[r]] += 1 
             
+
+        
+        maxFrequency = max(maxFrequency, hashMap[stringVal[r]]) 
+
+        currentLength = r - l + 1 
+        conversionsRequired = currentLength - maxFrequency 
+
+        if conversionsRequired <= k: 
+            maxLength = max(maxLength, currentLength) 
+
+        else: 
+            lVal = stringVal[l] 
+            hashMap[lVal] -= 1 
+            l += 1 
+
+        r += 1 
+
+    return maxLength
+
