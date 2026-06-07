@@ -44,3 +44,16 @@ class HttpStatusCode(Enum):
                 return k  
 
         return None
+    
+
+class Color(Enum): 
+    RED = 1 
+    GREEN = 2 
+    BLUE = 3 
+
+
+print(Color.RED) 
+print(Color.RED.value) 
+print(Color.RED.name) 
+
+n = 1 
